@@ -35,8 +35,7 @@ A modern, responsive portfolio website showcasing my skills as a Data Engineer a
 
 ## 🚀 Deployment
 
-This portfolio is deployed on GitHub Pages and can be accessed at:
-[Your GitHub Pages URL will be here]
+This portfolio is deployed on GitHub Pages.
 
 ## 📁 File Structure
 
@@ -57,28 +56,6 @@ portfolio/
 2. Recommended size: 400x400 pixels or larger
 3. The photo will be automatically cropped to a circle
 
-### Updating Content
-- Edit `index.html` to update your information
-- Modify `styles.css` to change colors and styling
-- Update `script.js` to customize animations
-
-## 🌐 Browser Support
-
-- Chrome (recommended)
-- Firefox
-- Safari
-- Edge
-
-## 📱 Mobile Responsive
-
-The website is fully responsive and optimized for:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (320px - 767px)
-
-## 🔧 Local Development
-
-To run this website locally:
 
 1. Clone the repository
 2. Open `index.html` in your browser
