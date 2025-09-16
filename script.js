@@ -530,11 +530,46 @@ function createBackToTop() {
     window.addEventListener('scroll', updateBackToTop, { passive: true });
 }
 
-// Text reveal animation
-function createTextReveal() {
-    const textElements = document.querySelectorAll('.hero-subtitle, .hero-description, .about-text p');
+// Progress Bar Animation
+function animateProgressBars() {
+    const progressBars = document.querySelectorAll('.progress-fill');
+    const skillsProgress = document.querySelector('.skills-progress');
     
-    const textObserver = new IntersectionObserver((entries) => {
+    const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate the skills progress section
+                if (skillsProgress) {
+                    skillsProgress.classList.add('animate');
+                }
+                
+                // Animate individual progress bars
+                const progressBar = entry.target;
+                const width = progressBar.getAttribute('data-width');
+                
+                setTimeout(() => {
+                    progressBar.style.width = width + '%';
+                }, 500);
+                
+                // Unobserve after animation
+                progressObserver.unobserve(progressBar);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    progressBars.forEach(bar => {
+        bar.style.width = '0%';
+        progressObserver.observe(bar);
+    });
+}
+
+// Enhanced Text reveal animation
+function createTextReveal() {
+    const heroTextElements = document.querySelectorAll('.hero-subtitle, .hero-description');
+    const aboutTextElements = document.querySelectorAll('.about-text p');
+    
+    // Hero text with typing effect
+    const heroTextObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const text = entry.target.textContent;
@@ -549,14 +584,32 @@ function createTextReveal() {
                     } else {
                         clearInterval(typeInterval);
                     }
-                }, 30);
+                }, 20);
+                
+                heroTextObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
     
-    textElements.forEach(el => {
+    // About text with fade-in effect
+    const aboutTextObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                aboutTextObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    // Apply observers
+    heroTextElements.forEach(el => {
         el.style.opacity = '0';
-        textObserver.observe(el);
+        heroTextObserver.observe(el);
+    });
+    
+    aboutTextElements.forEach(el => {
+        aboutTextObserver.observe(el);
     });
 }
 
@@ -604,6 +657,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createScrollProgress();
     createBackToTop();
     createTextReveal();
+    animateProgressBars();
     initThemeToggle();
     
     // Add page load animation

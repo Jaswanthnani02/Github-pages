@@ -867,6 +867,9 @@ body.dark-theme .theme-btn .fa-moon {
     color: #4b5563;
     position: relative;
     padding-left: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .about-text p::before {
@@ -883,6 +886,14 @@ body.dark-theme .theme-btn .fa-moon {
 /* Skills Progress Bars */
 .skills-progress {
     margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.skills-progress.animate {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .skills-progress h3 {
@@ -915,8 +926,9 @@ body.dark-theme .theme-btn .fa-moon {
     background: linear-gradient(90deg, #3b82f6, #8b5cf6);
     border-radius: 4px;
     width: 0;
-    transition: width 1.5s ease;
+    transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    will-change: width;
 }
 
 .progress-fill::after {
