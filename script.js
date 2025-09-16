@@ -1,3 +1,20 @@
+// Skeleton Loading Animation
+function createSkeletonLoading() {
+    const skeletonElements = document.querySelectorAll('.project-card, .skill-category, .about-text p');
+    
+    skeletonElements.forEach(element => {
+        element.classList.add('skeleton-loading');
+    });
+    
+    // Remove skeleton after a delay
+    setTimeout(() => {
+        skeletonElements.forEach(element => {
+            element.classList.remove('skeleton-loading');
+            element.classList.add('skeleton-loaded');
+        });
+    }, 2000);
+}
+
 // Enhanced Loading Screen with Error Handling
 function createLoadingScreen() {
     const loadingScreen = document.createElement('div');
@@ -6,18 +23,40 @@ function createLoadingScreen() {
         <div class="loading-content">
             <div class="loading-spinner"></div>
             <p class="loading-text">Loading Portfolio...</p>
+            <div class="loading-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
         </div>
     `;
     document.body.appendChild(loadingScreen);
     
     let loadingTimeout;
     let isLoaded = false;
+    let progress = 0;
+    
+    // Simulate loading progress
+    const progressInterval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress > 100) progress = 100;
+        
+        const progressFill = loadingScreen.querySelector('.progress-fill');
+        if (progressFill) {
+            progressFill.style.width = progress + '%';
+        }
+        
+        if (progress >= 100) {
+            clearInterval(progressInterval);
+        }
+    }, 100);
     
     function hideLoadingScreen() {
         if (isLoaded) return;
         isLoaded = true;
         
         clearTimeout(loadingTimeout);
+        clearInterval(progressInterval);
         loadingScreen.classList.add('hidden');
         setTimeout(() => {
             if (loadingScreen.parentNode) {
@@ -39,6 +78,64 @@ function createLoadingScreen() {
     if (document.readyState === 'complete') {
         hideLoadingScreen();
     }
+}
+
+// Matrix Code Rain Effect
+function createCodeRain() {
+    const canvas = document.createElement('canvas');
+    canvas.className = 'code-rain-canvas';
+    canvas.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.1;
+        pointer-events: none;
+    `;
+    document.body.appendChild(canvas);
+    
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+    const charArray = chars.split('');
+    
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+    
+    for (let i = 0; i < columns; i++) {
+        drops[i] = 1;
+    }
+    
+    function draw() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.fillStyle = '#0f0';
+        ctx.font = fontSize + 'px monospace';
+        
+        for (let i = 0; i < drops.length; i++) {
+            const text = charArray[Math.floor(Math.random() * charArray.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+    
+    setInterval(draw, 50);
+    
+    // Resize handler
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
 }
 
 // Optimized Particle System
@@ -87,27 +184,82 @@ function createParticleSystem() {
     }
 }
 
-// Custom Cursor
-function createCustomCursor() {
+// Interactive Cursor with Trail Effects
+function createInteractiveCursor() {
     const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
+    cursor.className = 'interactive-cursor';
     document.body.appendChild(cursor);
     
+    const trail = [];
+    const trailLength = 20;
+    
+    // Create trail elements
+    for (let i = 0; i < trailLength; i++) {
+        const trailDot = document.createElement('div');
+        trailDot.className = 'cursor-trail';
+        trailDot.style.cssText = `
+            position: fixed;
+            width: ${4 - (i * 0.2)}px;
+            height: ${4 - (i * 0.2)}px;
+            background: rgba(59, 130, 246, ${1 - (i * 0.05)});
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+        `;
+        document.body.appendChild(trailDot);
+        trail.push(trailDot);
+    }
+    
+    let mouseX = 0, mouseY = 0;
+    let trailX = 0, trailY = 0;
+    
     document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
+        mouseX = e.clientX;
+        mouseY = e.clientY;
     });
     
-    // Add hover effect for interactive elements
+    function animateCursor() {
+        // Main cursor
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
+        
+        // Trail animation
+        trailX += (mouseX - trailX) * 0.1;
+        trailY += (mouseY - trailY) * 0.1;
+        
+        trail.forEach((dot, index) => {
+            const delay = index * 0.02;
+            const x = trailX - (mouseX - trailX) * delay;
+            const y = trailY - (mouseY - trailY) * delay;
+            
+            dot.style.left = x + 'px';
+            dot.style.top = y + 'px';
+        });
+        
+        requestAnimationFrame(animateCursor);
+    }
+    
+    animateCursor();
+    
+    // Add hover effects
     const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-category, .floating-icon, .photo-container');
     
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
             cursor.classList.add('hover');
+            trail.forEach(dot => {
+                dot.style.transform = 'scale(1.5)';
+                dot.style.background = 'rgba(139, 92, 246, 0.8)';
+            });
         });
         
         el.addEventListener('mouseleave', () => {
             cursor.classList.remove('hover');
+            trail.forEach(dot => {
+                dot.style.transform = 'scale(1)';
+                dot.style.background = 'rgba(59, 130, 246, 0.6)';
+            });
         });
     });
 }
@@ -378,30 +530,54 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Enhanced Typing effect for hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
-
-// Initialize typing effect when page loads
-document.addEventListener('DOMContentLoaded', () => {
+// Dynamic Typing Effect with Multiple Roles
+function createDynamicTypingEffect() {
     const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        typeWriter(heroTitle, originalText, 50);
+    if (!heroTitle) return;
+    
+    const roles = [
+        'Data Engineer',
+        'Data Scientist', 
+        'AI/ML Engineer',
+        'Python Developer',
+        'Machine Learning Expert',
+        'Big Data Specialist'
+    ];
+    
+    let currentRoleIndex = 0;
+    let isDeleting = false;
+    let currentText = '';
+    let typeSpeed = 100;
+    
+    function typeEffect() {
+        const currentRole = roles[currentRoleIndex];
+        
+        if (isDeleting) {
+            currentText = currentRole.substring(0, currentText.length - 1);
+            typeSpeed = 50;
+        } else {
+            currentText = currentRole.substring(0, currentText.length + 1);
+            typeSpeed = 100;
+        }
+        
+        // Update the title with the current text
+        heroTitle.innerHTML = `Hi, I'm <span class="highlight">Jaswanth Gaddam</span><br><span class="typing-text">${currentText}</span><span class="cursor">|</span>`;
+        
+        if (!isDeleting && currentText === currentRole) {
+            typeSpeed = 2000; // Pause at end
+            isDeleting = true;
+        } else if (isDeleting && currentText === '') {
+            isDeleting = false;
+            currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+            typeSpeed = 500; // Pause before next role
+        }
+        
+        setTimeout(typeEffect, typeSpeed);
     }
-});
+    
+    // Start the typing effect
+    setTimeout(typeEffect, 1000);
+}
 
 // Enhanced Project card hover effects with 3D transform
 document.querySelectorAll('.project-card').forEach(card => {
@@ -475,6 +651,78 @@ function createScrollProgress() {
     window.addEventListener('scroll', updateProgress, { passive: true });
 }
 
+// Floating Action Button with Quick Navigation
+function createFloatingActionButton() {
+    const fab = document.createElement('div');
+    fab.className = 'floating-action-button';
+    fab.innerHTML = `
+        <button class="fab-main" id="fabMain">
+            <i class="fas fa-plus"></i>
+        </button>
+        <div class="fab-menu" id="fabMenu">
+            <button class="fab-item" data-section="home" title="Home">
+                <i class="fas fa-home"></i>
+            </button>
+            <button class="fab-item" data-section="about" title="About">
+                <i class="fas fa-user"></i>
+            </button>
+            <button class="fab-item" data-section="projects" title="Projects">
+                <i class="fas fa-code"></i>
+            </button>
+            <button class="fab-item" data-section="contact" title="Contact">
+                <i class="fas fa-envelope"></i>
+            </button>
+        </div>
+    `;
+    
+    document.body.appendChild(fab);
+    
+    const fabMain = document.getElementById('fabMain');
+    const fabMenu = document.getElementById('fabMenu');
+    const fabItems = document.querySelectorAll('.fab-item');
+    
+    let isOpen = false;
+    
+    fabMain.addEventListener('click', () => {
+        isOpen = !isOpen;
+        fabMenu.classList.toggle('open', isOpen);
+        fabMain.style.transform = isOpen ? 'rotate(45deg)' : 'rotate(0deg)';
+    });
+    
+    fabItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const section = item.getAttribute('data-section');
+            const target = document.getElementById(section);
+            if (target) {
+                const offsetTop = target.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+            isOpen = false;
+            fabMenu.classList.remove('open');
+            fabMain.style.transform = 'rotate(0deg)';
+        });
+    });
+    
+    // Hide FAB when scrolling up
+    let lastScrollY = window.scrollY;
+    const updateFAB = throttle(() => {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            fab.style.transform = 'translateY(100px)';
+        } else {
+            fab.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollY = currentScrollY;
+    }, 16);
+    
+    window.addEventListener('scroll', updateFAB, { passive: true });
+}
+
 // Enhanced back to top button
 function createBackToTop() {
     const backToTop = document.createElement('button');
@@ -482,7 +730,7 @@ function createBackToTop() {
     backToTop.style.cssText = `
         position: fixed;
         bottom: 20px;
-        right: 20px;
+        left: 20px;
         width: 50px;
         height: 50px;
         background: linear-gradient(135deg, #3b82f6, #8b5cf6);
@@ -652,12 +900,16 @@ function cleanup() {
 // Initialize all effects
 document.addEventListener('DOMContentLoaded', () => {
     createLoadingScreen();
+    createSkeletonLoading();
+    createCodeRain();
     createParticleSystem();
-    // createCustomCursor(); // Disabled custom cursor
+    createInteractiveCursor();
     createScrollProgress();
     createBackToTop();
+    createFloatingActionButton();
     createTextReveal();
     animateProgressBars();
+    createDynamicTypingEffect();
     initThemeToggle();
     
     // Add page load animation

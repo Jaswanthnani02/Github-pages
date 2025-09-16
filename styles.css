@@ -121,6 +121,77 @@ body.dark-theme .footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Dark mode section dividers */
+body.dark-theme .about::before {
+    background: linear-gradient(180deg, #1e293b 0%, transparent 100%);
+}
+
+body.dark-theme .projects::before {
+    background: linear-gradient(180deg, #0f172a 0%, transparent 100%);
+}
+
+body.dark-theme .contact::before {
+    background: linear-gradient(180deg, #1e293b 0%, transparent 100%);
+}
+
+body.dark-theme .footer::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* Dark mode section title underlines */
+body.dark-theme .section-title::after {
+    background: linear-gradient(90deg, #60a5fa, #8b5cf6);
+}
+
+/* Dark mode progress bar styling */
+body.dark-theme .progress-fill {
+    background: linear-gradient(90deg, #60a5fa, #8b5cf6);
+}
+
+/* Dark mode skill category top borders */
+body.dark-theme .skill-category::before {
+    background: linear-gradient(90deg, #60a5fa, #8b5cf6);
+}
+
+/* Dark mode project card top borders */
+body.dark-theme .project-card::before {
+    background: linear-gradient(90deg, #60a5fa, #8b5cf6);
+}
+
+/* Dark mode about text left borders */
+body.dark-theme .about-text p::before {
+    background: linear-gradient(180deg, #60a5fa, #8b5cf6);
+}
+
+/* Dark mode additional section separators */
+body.dark-theme .about {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .projects {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .contact {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Dark mode hero section adjustments */
+body.dark-theme .hero {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+/* Dark mode navbar improvements */
+body.dark-theme .navbar {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+body.dark-theme .navbar.scrolled {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
 /* Theme Toggle */
 .theme-toggle {
     position: fixed;
@@ -402,6 +473,23 @@ body.dark-theme .theme-btn .fa-moon {
     margin-bottom: 1rem;
     line-height: 1.2;
     position: relative;
+    min-height: 120px;
+}
+
+.typing-text {
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+.cursor {
+    color: #fbbf24;
+    animation: blink 1s infinite;
+    font-weight: 300;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 .hero-title::before {
@@ -1736,6 +1824,49 @@ body.dark-theme .theme-btn .fa-moon {
     animation: pulse 2s ease-in-out infinite;
 }
 
+.loading-progress {
+    width: 200px;
+    margin-top: 1rem;
+}
+
+.loading-progress .progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loading-progress .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Skeleton Loading Animation */
+.skeleton-loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 8px;
+}
+
+.skeleton-loaded {
+    animation: skeleton-loaded 0.5s ease-out;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+@keyframes skeleton-loaded {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -1746,20 +1877,101 @@ body.dark-theme .theme-btn .fa-moon {
     50% { opacity: 0.6; }
 }
 
-/* Cursor Effects */
-.custom-cursor {
+/* Interactive Cursor Effects */
+.interactive-cursor {
     position: fixed;
     width: 20px;
     height: 20px;
-    background: rgba(59, 130, 246, 0.5);
+    background: rgba(59, 130, 246, 0.8);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
-    transition: transform 0.1s ease;
+    transition: all 0.3s ease;
     mix-blend-mode: difference;
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-.custom-cursor.hover {
+.interactive-cursor.hover {
     transform: scale(2);
-    background: rgba(139, 92, 246, 0.8);
+    background: rgba(139, 92, 246, 0.9);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.cursor-trail {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.1s ease;
+}
+
+/* Floating Action Button */
+.floating-action-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.fab-main {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fab-main:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5);
+}
+
+.fab-menu {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.fab-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.fab-item {
+    width: 50px;
+    height: 50px;
+    background: white;
+    color: #3b82f6;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fab-item:hover {
+    background: #3b82f6;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
