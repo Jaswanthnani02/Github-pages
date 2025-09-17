@@ -185,84 +185,7 @@ function createParticleSystem() {
 }
 
 // Interactive Cursor with Trail Effects
-function createInteractiveCursor() {
-    const cursor = document.createElement('div');
-    cursor.className = 'interactive-cursor';
-    document.body.appendChild(cursor);
-    
-    const trail = [];
-    const trailLength = 20;
-    
-    // Create trail elements
-    for (let i = 0; i < trailLength; i++) {
-        const trailDot = document.createElement('div');
-        trailDot.className = 'cursor-trail';
-        trailDot.style.cssText = `
-            position: fixed;
-            width: ${4 - (i * 0.2)}px;
-            height: ${4 - (i * 0.2)}px;
-            background: rgba(59, 130, 246, ${1 - (i * 0.05)});
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.1s ease;
-        `;
-        document.body.appendChild(trailDot);
-        trail.push(trailDot);
-    }
-    
-    let mouseX = 0, mouseY = 0;
-    let trailX = 0, trailY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    function animateCursor() {
-        // Main cursor
-        cursor.style.left = mouseX + 'px';
-        cursor.style.top = mouseY + 'px';
-        
-        // Trail animation
-        trailX += (mouseX - trailX) * 0.1;
-        trailY += (mouseY - trailY) * 0.1;
-        
-        trail.forEach((dot, index) => {
-            const delay = index * 0.02;
-            const x = trailX - (mouseX - trailX) * delay;
-            const y = trailY - (mouseY - trailY) * delay;
-            
-            dot.style.left = x + 'px';
-            dot.style.top = y + 'px';
-        });
-        
-        requestAnimationFrame(animateCursor);
-    }
-    
-    animateCursor();
-    
-    // Add hover effects
-    const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-category, .floating-icon, .photo-container');
-    
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('hover');
-            trail.forEach(dot => {
-                dot.style.transform = 'scale(1.5)';
-                dot.style.background = 'rgba(139, 92, 246, 0.8)';
-            });
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hover');
-            trail.forEach(dot => {
-                dot.style.transform = 'scale(1)';
-                dot.style.background = 'rgba(59, 130, 246, 0.6)';
-            });
-        });
-    });
-}
+// Interactive cursor removed. See commit: removed custom cursor animation per user request.
 
 // Enhanced Navigation functionality
 const hamburger = document.querySelector('.hamburger');
@@ -903,7 +826,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createSkeletonLoading();
     createCodeRain();
     createParticleSystem();
-    createInteractiveCursor();
+
     createScrollProgress();
     createBackToTop();
     createFloatingActionButton();
