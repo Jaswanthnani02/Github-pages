@@ -80,63 +80,7 @@ function createLoadingScreen() {
     }
 }
 
-// Matrix Code Rain Effect
-function createCodeRain() {
-    const canvas = document.createElement('canvas');
-    canvas.className = 'code-rain-canvas';
-    canvas.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        opacity: 0.1;
-        pointer-events: none;
-    `;
-    document.body.appendChild(canvas);
-    
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
-    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-    const charArray = chars.split('');
-    
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = [];
-    
-    for (let i = 0; i < columns; i++) {
-        drops[i] = 1;
-    }
-    
-    function draw() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        ctx.fillStyle = '#0f0';
-        ctx.font = fontSize + 'px monospace';
-        
-        for (let i = 0; i < drops.length; i++) {
-            const text = charArray[Math.floor(Math.random() * charArray.length)];
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-            
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
-            }
-            drops[i]++;
-        }
-    }
-    
-    setInterval(draw, 50);
-    
-    // Resize handler
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
-}
+// Matrix Code Rain Effect removed — intentionally disabled to avoid unwanted 0/1 visuals.
 
 // Optimized Particle System
 function createParticleSystem() {
@@ -184,8 +128,6 @@ function createParticleSystem() {
     }
 }
 
-// Interactive Cursor with Trail Effects
-// Interactive cursor removed. See commit: removed custom cursor animation per user request.
 
 // Enhanced Navigation functionality
 const hamburger = document.querySelector('.hamburger');
@@ -824,7 +766,7 @@ function cleanup() {
 document.addEventListener('DOMContentLoaded', () => {
     createLoadingScreen();
     createSkeletonLoading();
-    createCodeRain();
+    // createCodeRain(); // disabled - removed global binary/matrix rain to avoid 0/1 effect
     createParticleSystem();
 
     createScrollProgress();

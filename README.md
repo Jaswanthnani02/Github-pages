@@ -91,3 +91,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 **Built with ❤️ by Jaswanth Gaddam**
+
+## 🏅 Badges
+
+I've added a new "Badges" section to the home page that displays selected certifications and technical badges. The image used is `badges.webp` in the project root.
