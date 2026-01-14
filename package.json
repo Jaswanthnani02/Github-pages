@@ -1,0 +1,24 @@
+{
+  "name": "jaswanth-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio with GSAP animations",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npm run serve",
+    "serve": "npx http-server -p 8080 -o",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "portfolio",
+    "animations",
+    "gsap"
+  ],
+  "author": "Jaswanth Gaddam",
+  "license": "MIT",
+  "dependencies": {
+    "gsap": "^3.12.5"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

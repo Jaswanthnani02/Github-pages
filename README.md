@@ -1,97 +1,65 @@
-# Jaswanth Gaddam - Portfolio Website
+# Jaswanth Gaddam - Advanced Portfolio
 
-A modern, responsive portfolio website showcasing my skills as a Data Engineer and Data Scientist.
+An advanced, animation-rich portfolio built with React and a lightweight Node/Express API for local development.
 
-## 🚀 Features
+## Features
 
-- **Modern Design**: Clean, professional layout with glassmorphism effects
-- **Interactive Animations**: Smooth scroll animations, particle effects, and 3D hover effects
-- **Responsive**: Works perfectly on desktop, tablet, and mobile devices
-- **Dark/Light Theme**: Toggle between themes with a beautiful animated button
-- **Performance Optimized**: Fast loading with optimized animations and effects
+- **Cinematic UI**: editorial typography, atmospheric gradients, and premium cards.
+- **Motion System**: reveal-on-scroll, floating orbs, and interactive hover states.
+- **Professional Structure**: capability, project, experience, and contact sections.
+- **API Ready**: simple Express endpoints to power status and contact forms.
 
-## 🛠️ Technologies Used
+## Tech Stack
 
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with animations and effects
-- **JavaScript**: Interactive functionality and animations
-- **Font Awesome**: Beautiful icons throughout the site
+- **React + Vite** for the client app
+- **Node + Express** for the API
+- **CSS** with custom variables and animations
 
-## ✨ Key Features
-
-### Interactive Elements
-- 🌟 **Particle Background**: Floating particles throughout the page
-- 🎨 **Theme Toggle**: Switch between light and dark themes
-- 📊 **Animated Statistics**: Numbers that count up when scrolled into view
-- 🎯 **3D Hover Effects**: Cards tilt and transform on hover
-- ✨ **Loading Screen**: Beautiful loading animation
-- 📈 **Progress Bars**: Animated skill progress indicators
-
-### Sections
-- **Hero Section**: Introduction with animated stats and interactive profile
-- **About**: Skills and experience with progress bars
-- **Projects**: Featured projects with technology icons
-- **Contact**: Contact information and social links
-
-## 🚀 Deployment
-
-This portfolio is deployed on GitHub Pages and can be accessed at:
-[Your GitHub Pages URL will be here]
-
-## 📁 File Structure
+## Project Structure
 
 ```
-portfolio/
-├── index.html          # Main portfolio page
-├── resume.html         # Resume page
-├── styles.css          # Main stylesheet
-├── script.js           # JavaScript functionality
-├── README.md           # This file
-└── profile-photo.jpg   # Profile photo (add your own)
+Github-pages/
+├── client/
+│   ├── public/
+│   │   ├── badges.jpg
+│   │   ├── badges.webp
+│   │   ├── profile.jpg
+│   │   └── resume.html
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── styles.css
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+├── server/
+│   ├── index.js
+│   └── package.json
+└── README.md
 ```
 
-## 🎨 Customization
+## Local Development
 
-### Adding Your Photo
-1. Save your photo as `profile-photo.jpg` in the project root
-2. Recommended size: 400x400 pixels or larger
-3. The photo will be automatically cropped to a circle
+### Client
 
-### Updating Content
-- Edit `index.html` to update your information
-- Modify `styles.css` to change colors and styling
-- Update `script.js` to customize animations
+```
+cd client
+npm install
+npm run dev
+```
 
-## 🌐 Browser Support
+### Server
 
-- Chrome (recommended)
-- Firefox
-- Safari
-- Edge
+```
+cd server
+npm install
+npm run dev
+```
 
-## 📱 Mobile Responsive
+The client will request `/api/status` and `/api/contact` from the server.
 
-The website is fully responsive and optimized for:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (320px - 767px)
+## Deployment Notes
 
-## 🔧 Local Development
+- GitHub Pages can host the static React build.
+- The Node server should be deployed separately (Render, Railway, Fly, etc.).
 
-To run this website locally:
-
-1. Clone the repository
-2. Open `index.html` in your browser
-3. Or use a local server: `python3 -m http.server 8000`
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-**Built with ❤️ by Jaswanth Gaddam**
-
-## 🏅 Badges
-
-I've added a new "Badges" section to the home page that displays selected certifications and technical badges. The image used is `badges.webp` in the project root.
