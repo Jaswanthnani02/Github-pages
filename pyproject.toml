@@ -12,3 +12,6 @@ dependencies = [
 members = [
     "azure-ticket-dispatcher",
 ]
+
+[tool.poetry]
+package-mode = false
