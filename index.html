@@ -4,468 +4,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaswanth Gaddam - Portfolio</title>
+    <title>Jaswanth Gaddam | Data Engineer & AI Specialist</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preload" href="profile.jpg" as="image">
-    <meta name="description"
-        content="Jaswanth Gaddam - Data Engineer & Data Scientist Portfolio. Expert in Python, Machine Learning, Data Engineering, and AI solutions.">
-    <meta name="keywords" content="Data Engineer, Data Scientist, Python, Machine Learning, AI, Portfolio">
-    <meta name="author" content="Jaswanth Gaddam">
+    <meta name="description" content="Jaswanth Gaddam - Data Engineer & AI Specialist. Building data pipelines, ML solutions, and AI-powered systems.">
 </head>
 
 <body>
-    <!-- Theme Toggle -->
-    <div class="theme-toggle">
-        <button id="themeToggle" class="theme-btn">
-            <i class="fas fa-sun"></i>
-            <i class="fas fa-moon"></i>
-        </button>
-    </div>
+    <!-- 3D Background -->
+    <canvas id="bg-canvas"></canvas>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">JG</a>
+    <!-- Cursor glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="#" class="nav-logo">JG<span class="logo-accent">.</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="resume.html" class="nav-link">Resume</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <a href="resume.html" class="nav-cta">Resume</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-inner">
+            <p class="hero-greeting fade-up">Hi, my name is</p>
+            <h1 class="hero-name fade-up">Jaswanth Gaddam.</h1>
+            <h2 class="hero-tagline fade-up">I build things with data & AI.</h2>
+            <p class="hero-desc fade-up">
+                I'm a Data Engineer and AI specialist focused on building efficient data pipelines,
+                machine learning solutions, and intelligent systems. Currently pursuing my M.S. in Data Science
+                at <a href="#" class="inline-link">Florida Atlantic University</a>.
+            </p>
+            <div class="hero-cta fade-up">
+                <a href="#projects" class="btn-primary">View My Work</a>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Hi, I'm <span class="highlight">Jaswanth Gaddam</span></h1>
-                <p class="hero-subtitle">Data Engineer & Data Scientist</p>
-                <p class="hero-description">
-                    I design and develop efficient data pipelines, create insightful visualizations,
-                    and build machine learning solutions. Passionate about data-driven decision making and continuous
-                    learning.
+    <!-- About -->
+    <section class="section" id="about">
+        <h2 class="section-heading"><span class="section-number">01.</span> About Me</h2>
+        <div class="about-layout">
+            <div class="about-text">
+                <p>
+                    I'm a results-driven Data Science & Engineering master's student with expertise in
+                    <span class="highlight">Generative AI</span>, machine learning, deep learning, and
+                    Large Language Models. I specialize in building custom chatbots using RAG and
+                    frameworks like LangChain, LangGraph, and CrewAI.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="resume.html" class="btn btn-secondary">Download Resume</a>
-                </div>
-
-                <!-- Animated Stats -->
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="5">3 +</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="50">10 +</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="15">7 +</div>
-                        <div class="stat-label">Technologies</div>
-                    </div>
-                </div>
+                <p>
+                    With hands-on experience as an Associate Data Engineer, I've designed and maintained
+                    data pipelines, optimized big data processing with tools like Matillion and PySpark,
+                    and created impactful dashboards with Tableau and Power BI.
+                </p>
+                <p>Here are some technologies I've been working with recently:</p>
+                <ul class="tech-list">
+                    <li>Python</li>
+                    <li>SQL & PostgreSQL</li>
+                    <li>Apache Spark</li>
+                    <li>LangChain / LangGraph</li>
+                    <li>AWS & Azure</li>
+                    <li>TensorFlow</li>
+                    <li>Snowflake</li>
+                    <li>Power Automate</li>
+                </ul>
             </div>
-            <div class="hero-image">
-                <div class="interactive-profile">
-                    <div class="profile-photo">
-                        <div class="photo-container">
-                            <img src="profile.jpg" alt="Jaswanth Gaddam" class="profile-image">
-
-
-                        </div>
-                    </div>
-                    <div class="floating-elements">
-                        <div class="floating-icon" data-icon="fas fa-database">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="floating-icon" data-icon="fas fa-brain">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <div class="floating-icon" data-icon="fas fa-chart-line">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="floating-icon" data-icon="fas fa-code">
-                            <i class="fas fa-code"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <div class="scroll-arrow">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <span>Scroll to explore</span>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        A highly motivated and results-driven Data Science and Engineering master's student with a
-                        strong foundation in Generative AI, machine learning, deep learning, and Large Language Models
-                        (LLMs).
-                        My expertise includes building custom chatbots using Retrieval-Augmented Generation (RAG) and
-                        leveraging frameworks like LangChain, LangGraph, and CrewAI to create sophisticated, multi-agent
-                        AI systems.
-                        With hands-on experience as an Associate Data Engineer, I have a proven track record of
-                        designing and maintaining data pipelines and optimizing big data processing using tools like
-                        Matillion and PySpark.
-                        I am also proficient in creating impactful dashboards with Tableau and Power BI and implementing
-                        cloud solutions on AWS. I am seeking to apply my comprehensive skills in data analysis,
-                        engineering, and cutting-edge Generative AI technologies to solve complex business challenges
-                    </p>
-                    <p>
-                        Currently pursuing my Master's in Data Science and Engineering at Florida Atlantic University,
-                        I'm passionate about leveraging data to drive business decisions and create innovative
-                        solutions.
-                    </p>
-
-                    <!-- Skills Progress Bars -->
-                    <div class="skills-progress">
-                        <h3>Core Skills</h3>
-                        <div class="progress-item">
-                            <div class="progress-label">Python</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="95"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-label">SQL</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="90"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-label">Machine Learning</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="85"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-label">Data Engineering</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="88"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skills">
-                    <h3>Skills & Technologies</h3>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>Programming & Data</h4>
-                            <ul>
-                                <li><i class="fab fa-python"></i> Python</li>
-                                <li><i class="fas fa-database"></i> SQL</li>
-                                <li><i class="fas fa-chart-line"></i> R</li>
-                                <li><i class="fas fa-code"></i> C</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Data Engineering</h4>
-                            <ul>
-                                <li><i class="fas fa-fire"></i> Apache Spark</li>
-                                <li><i class="fas fa-elephant"></i> Hadoop</li>
-                                <li><i class="fas fa-exchange-alt"></i> ETL Pipelines</li>
-                                <li><i class="fas fa-warehouse"></i> Data Warehousing</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h4>AI/ML & Cloud</h4>
-                            <ul>
-                                <li><i class="fas fa-brain"></i> TensorFlow</li>
-                                <li><i class="fas fa-link"></i> LangChain</li>
-                                <li><i class="fas fa-project-diagram"></i> LangGraph</li>
-                                <li><i class="fas fa-robot"></i> Crew AI</li>
-                                <li><i class="fab fa-aws"></i> AWS</li>
-                                <li><i class="fas fa-snowflake"></i> Snowflake</li>
-                                <li><i class="fab fa-microsoft"></i> Azure</li>
-                                <li><i class="fas fa-bolt"></i> Power Automate</li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="about-image">
+                <div class="image-wrapper">
+                    <img src="profile.jpg" alt="Jaswanth Gaddam" loading="lazy" width="300" height="300">
+                    <div class="image-border"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Resume CTA Section -->
-    <section class="resume-cta">
-        <div class="container">
-            <div class="resume-cta-content">
-                <div class="resume-cta-icon">
-                    <i class="fas fa-file-alt"></i>
+    <!-- Experience / Skills -->
+    <section class="section" id="experience">
+        <h2 class="section-heading"><span class="section-number">02.</span> Where I've Worked</h2>
+        <div class="experience-grid">
+            <div class="exp-card">
+                <div class="exp-header">
+                    <h3>Associate Data Engineer</h3>
+                    <p class="exp-company">@ <a href="#" class="inline-link">Nexturn India</a></p>
                 </div>
-                <h2>Interested in my experience?</h2>
-                <p>View my complete resume with detailed work history, education, and certifications</p>
-                <div class="resume-cta-buttons">
-                    <a href="resume.html" class="btn btn-primary btn-large">
-                        <i class="fas fa-eye"></i> View Full Resume
-                    </a>
-                    <button onclick="window.open('resume.html'); setTimeout(() => window.print(), 500)"
-                        class="btn btn-secondary btn-large">
-                        <i class="fas fa-download"></i> Download PDF
-                    </button>
+                <p class="exp-date">2021 — 2023</p>
+                <ul class="exp-list">
+                    <li>Retrieved data from Splunk Data Lake and transformed using PySpark for analysis</li>
+                    <li>Developed and managed ETL pipelines using Matillion, Python, and SQL</li>
+                    <li>Maintained PostgreSQL databases for payment and FDS data reconciliation</li>
+                    <li>Created dashboards with Tableau and Power BI for data-driven insights</li>
+                </ul>
+                <div class="exp-tags">
+                    <span>PySpark</span><span>PostgreSQL</span><span>Matillion</span><span>Tableau</span><span>AWS</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-heading" style="margin-top: 100px;"><span class="section-number">02b.</span> Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-group">
+                <h3><i class="fas fa-code"></i> Programming</h3>
+                <div class="skill-tags">
+                    <span>Python</span><span>SQL</span><span>R</span><span>C</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3><i class="fas fa-database"></i> Data Engineering</h3>
+                <div class="skill-tags">
+                    <span>Apache Spark</span><span>Hadoop</span><span>ETL Pipelines</span><span>Data Warehousing</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3><i class="fas fa-brain"></i> AI / Machine Learning</h3>
+                <div class="skill-tags">
+                    <span>TensorFlow</span><span>LangChain</span><span>LangGraph</span><span>Crew AI</span><span>RAG</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3><i class="fas fa-cloud"></i> Cloud & Tools</h3>
+                <div class="skill-tags">
+                    <span>AWS</span><span>Azure</span><span>Snowflake</span><span>Power Automate</span><span>Tableau</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" data-aos="fade-up">
-                    <div class="project-image">
-                        <i class="fas fa-database"></i>
-                        <div class="project-overlay">
-                            <div class="project-links">
+    <!-- Projects -->
+    <section class="section" id="projects">
+        <h2 class="section-heading"><span class="section-number">03.</span> Things I've Built</h2>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Expedia Recon Database Maintenance</h3>
-                        <p>Retrieved data from Splunk Data Lake to production database and transformed data using
-                            PySpark for analysis. Maintained PostgreSQL database for payment and FDS data
-                            reconciliation.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag"><i class="fab fa-python"></i> PySpark</span>
-                            <span class="tech-tag"><i class="fas fa-database"></i> PostgreSQL</span>
-                            <span class="tech-tag"><i class="fas fa-chart-bar"></i> Tableau</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-calendar"></i>
-                                <span>2023</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-clock"></i>
-                                <span>6 months</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-image">
-                        <i class="fas fa-cogs"></i>
-                        <div class="project-overlay">
-                            <div class="project-links">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Rxsense ETL Pipeline Documentation</h3>
-                        <p>Developed and managed data pipelines using Matillion ETL tool, integrating Python and SQL
-                            scripts. Automated data workflows and documented comprehensive pipeline processes.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag"><i class="fas fa-cogs"></i> Matillion</span>
-                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
-                            <span class="tech-tag"><i class="fas fa-database"></i> SQL</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-calendar"></i>
-                                <span>2023</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-clock"></i>
-                                <span>4 months</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image">
-                        <i class="fas fa-brain"></i>
-                        <div class="project-overlay">
-                            <div class="project-links">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Generative AI Solutions & RAG Systems</h3>
+        <div class="project-list">
+            <article class="project-featured">
+                <div class="project-content">
+                    <p class="project-overline">Featured Project</p>
+                    <h3 class="project-name">Generative AI Solutions & RAG Systems</h3>
+                    <div class="project-description">
                         <p>Built custom Generative AI solutions for businesses using LangGraph, LangChain, and Crew AI.
-                            Implemented Retrieval-Augmented Generation (RAG) systems for enhanced knowledge retrieval
-                            and intelligent automation workflows.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag"><i class="fas fa-brain"></i> LangGraph</span>
-                            <span class="tech-tag"><i class="fas fa-link"></i> LangChain</span>
-                            <span class="tech-tag"><i class="fas fa-robot"></i> Crew AI</span>
-                            <span class="tech-tag"><i class="fas fa-search"></i> RAG</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-calendar"></i>
-                                <span>2024</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-clock"></i>
-                                <span>Ongoing</span>
-                            </div>
-                        </div>
+                        Implemented Retrieval-Augmented Generation systems for enhanced knowledge retrieval
+                        and intelligent automation workflows.</p>
                     </div>
+                    <ul class="project-tech-list">
+                        <li>LangGraph</li><li>LangChain</li><li>Crew AI</li><li>RAG</li><li>Python</li>
+                    </ul>
                 </div>
+            </article>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-image">
-                        <i class="fas fa-server"></i>
-                        <div class="project-overlay">
-                            <div class="project-links">
-
-                            </div>
-                        </div>
+            <article class="project-featured">
+                <div class="project-content">
+                    <p class="project-overline">Featured Project</p>
+                    <h3 class="project-name">Azure Automated Ticket Dispatcher</h3>
+                    <div class="project-description">
+                        <p>Engineered a serverless ticket dispatching system using Azure Functions with intelligent
+                        load balancing, dedicated team routing, and real-time HTML reporting.</p>
                     </div>
-                    <div class="project-content">
-                        <h3>Azure Automated Ticket Dispatcher</h3>
-                        <p>Engineered a serverless ticket dispatching system using Azure Functions to automate
-                            assignment logic. Features intelligent load balancing, dedicated team routing, and real-time
-                            HTML reporting.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag"><i class="fab fa-microsoft"></i> Azure Functions</span>
-                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
-                            <span class="tech-tag"><i class="fas fa-code-branch"></i> ConnectWise API</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-calendar"></i>
-                                <span>2025</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-clock"></i>
-                                <span>Ongoing</span>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="project-tech-list">
+                        <li>Azure Functions</li><li>Python</li><li>ConnectWise API</li>
+                    </ul>
                 </div>
+            </article>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-image">
-                        <i class="fas fa-robot"></i>
-                        <div class="project-overlay">
-                            <div class="project-links">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>ConnectWise SmartOps AI Integration</h3>
+            <article class="project-featured">
+                <div class="project-content">
+                    <p class="project-overline">Featured Project</p>
+                    <h3 class="project-name">ConnectWise SmartOps AI Integration</h3>
+                    <div class="project-description">
                         <p>Developed a heuristic-based AI engine to analyze ticket sentiment and automate
-                            prioritization. Integrated with Power Automate to streamline workflows and enhance
-                            operational efficiency.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag"><i class="fas fa-brain"></i> AI/ML</span>
-                            <span class="tech-tag"><i class="fab fa-microsoft"></i> Power Automate</span>
-                            <span class="tech-tag"><i class="fas fa-cogs"></i> SmartOps</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-calendar"></i>
-                                <span>2025</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-clock"></i>
-                                <span>Ongoing</span>
-                            </div>
-                        </div>
+                        prioritization. Integrated with Power Automate for streamlined workflows.</p>
                     </div>
+                    <ul class="project-tech-list">
+                        <li>AI/ML</li><li>Power Automate</li><li>SmartOps</li><li>Python</li>
+                    </ul>
                 </div>
+            </article>
+        </div>
+
+        <h3 class="other-projects-title">Other Noteworthy Projects</h3>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-card-top">
+                    <i class="fas fa-folder-open project-folder"></i>
+                </div>
+                <h3>Expedia Recon Database</h3>
+                <p>Retrieved data from Splunk Data Lake to production database and transformed data using PySpark for payment reconciliation.</p>
+                <div class="project-card-tags">
+                    <span>PySpark</span><span>PostgreSQL</span><span>Tableau</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-card-top">
+                    <i class="fas fa-folder-open project-folder"></i>
+                </div>
+                <h3>Rxsense ETL Pipeline</h3>
+                <p>Developed and managed data pipelines using Matillion ETL tool, integrating Python and SQL scripts with automated workflows.</p>
+                <div class="project-card-tags">
+                    <span>Matillion</span><span>Python</span><span>SQL</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badges -->
+        <div class="badges-section">
+            <h3 class="other-projects-title">Certifications & Badges</h3>
+            <div class="badges-container">
+                <img src="badges.webp" alt="Technical certifications and badges" loading="lazy" width="800" height="400">
             </div>
         </div>
     </section>
 
-    <section id="badges" class="badges">
-        <div class="container">
-            <h2 class="section-title">Badges</h2>
-            <div class="badges-content">
-                <figure class="badge-figure">
-                    <img src="badges.webp" alt="Collection of technical badges and certifications" class="badge-image">
-                    <figcaption>Selected badges & certifications</figcaption>
-                </figure>
-            </div>
+    <!-- Contact -->
+    <section class="section section-center" id="contact">
+        <p class="section-number">04. What's Next?</p>
+        <h2 class="contact-title">Get In Touch</h2>
+        <p class="contact-desc">
+            I'm currently looking for new opportunities. Whether you have a question
+            or just want to say hi, my inbox is always open.
+        </p>
+        <div class="contact-links">
+            <a href="mailto:jaswanthnani02@icloud.com" class="btn-primary">Say Hello</a>
+        </div>
+        <div class="contact-details">
+            <a href="mailto:jaswanthnani02@icloud.com"><i class="fas fa-envelope"></i> jaswanthnani02@icloud.com</a>
+            <a href="tel:+15616174480"><i class="fas fa-phone"></i> +1 (561) 617-4480</a>
+            <span><i class="fas fa-map-marker-alt"></i> Chicago, IL</span>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's work together!</h3>
-                    <p>I'm always interested in new opportunities and exciting projects. Feel free to reach out if you'd
-                        like to collaborate or just want to say hello.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>jaswanthnani02@icloud.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+1 (561) 617-4480</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Boca Raton, FL</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="social-links">
-
-                    <a href="https://www.linkedin.com/in/gaddamjaswanth/" class="social-link" title="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <!-- Twitter and Instagram links removed -->
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Jaswanth Gaddam. All rights reserved.</p>
+        <div class="footer-social">
+            <a href="https://www.linkedin.com/in/gaddamjaswanth/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
+        <p>Designed & Built by Jaswanth Gaddam</p>
     </footer>
 
-    <!-- GSAP Animation Library -->
+    <!-- Side Elements -->
+    <div class="side-email">
+        <a href="mailto:jaswanthnani02@icloud.com">jaswanthnani02@icloud.com</a>
+    </div>
+    <div class="side-social">
+        <a href="https://www.linkedin.com/in/gaddamjaswanth/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
-
-    <!-- GSAP Animations -->
-    <script src="gsap-animations.js"></script>
-    <!-- <script src="gsap-ultra.js"></script> DISABLED TO PREVENT CONFLICTS -->
-    <!-- Original Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 
