@@ -272,6 +272,17 @@
             color: var(--accent);
         }
 
+        .job-sublabel {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            opacity: 0.75;
+            margin: 10px 0 4px;
+        }
+
         /* ---- Projects ---- */
         .project {
             margin-bottom: 24px;
@@ -437,7 +448,7 @@
         <!-- Header -->
         <header class="resume-header fade-in">
             <h1 class="resume-name">Jaswanth Gaddam</h1>
-            <p class="resume-role">Data Engineer &middot; AI/ML Specialist &middot; Data Scientist</p>
+            <p class="resume-role">AI Strategy &amp; Solutions Engineer &middot; Data Engineer &middot; AI/ML Specialist</p>
             <div class="resume-contact">
                 <a href="mailto:jaswanthnani02@icloud.com"><i class="fas fa-envelope"></i> jaswanthnani02@icloud.com</a>
                 <a href="tel:+15616174480"><i class="fas fa-phone"></i> +1 (561) 617-4480</a>
@@ -464,6 +475,34 @@
         <!-- Experience -->
         <section class="r-section fade-in">
             <h2 class="r-section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">AI Strategy &amp; Solutions Engineer <span>@ BetterWorld Technology (BWT)</span></div>
+                    <div class="job-date">Feb 2026 — Present</div>
+                </div>
+                <div class="job-sublabel">BWT Brain — Unified Knowledge Corpus</div>
+                <ul class="job-list">
+                    <li>Architected a unified knowledge retrieval system consolidating IT Glue documentation across 188 client organizations into a single AI-searchable corpus, eliminating fragmented technician lookups</li>
+                    <li>Designed Azure-native pipeline: Python worker on Azure Container Apps syncing IT Glue documents into Azure AI Search with hybrid retrieval (BM25 keyword + vector embeddings + semantic re-ranking)</li>
+                    <li>Implemented KEDA-based autoscaling and concurrency tuning on Container Apps to handle bursty sync workloads cost-efficiently</li>
+                    <li>Companion components: "CoS Agent" concept for executive workflow assistance and Rewst integration for automation hand-off</li>
+                </ul>
+                <div class="job-sublabel">MCP Server Development</div>
+                <ul class="job-list">
+                    <li>Built ConnectWise MCP server enabling LLM-driven bulk ticket analysis, NOC alert board triage, workflow debugging, and ticket merge operations — used to produce the Clark Brands 90-day network review report and resolve a recurring EventID 528 workflow misfire</li>
+                    <li>Built IT Glue MCP server with curated tenant map for all 188 BWT client organizations; documented working endpoints, broken endpoints, and reliable tool-call patterns to maximize agent success rate</li>
+                    <li>Built Auvik MCP server powering client health reporting and cross-tenant device fleet enumeration</li>
+                    <li>Established pattern: MCP servers as connective tissue between Claude and BWT's PSA/RMM/documentation stack, turning multi-step manual workflows into single conversational queries</li>
+                </ul>
+                <div class="job-sublabel">AI Strategy &amp; R&amp;D</div>
+                <ul class="job-list">
+                    <li>Authored formal strategy brief for BWT leadership benchmarking BWT against top-tier MSPs; evaluated vendors including zofiQ (acquired by ConnectWise, Jan 2026), Cooper Copilot, Thread AI, and Rewst</li>
+                    <li>Drove vendor selection conversations and AI adoption roadmap recommendations for executive leadership</li>
+                    <li>Prototyping autonomous IT ops platform combining n8n, Claude, React Flow, and MCP integrations; V1 scope targets L1 ticket triage automation for measurable ticket deflection</li>
+                    <li>Delivered 7-phase TaxValet onboarding automation plan projected to eliminate ~75% of manual onboarding time</li>
+                </ul>
+            </div>
+
             <div class="job">
                 <div class="job-header">
                     <div class="job-title">Associate Data Engineer <span>@ Nexturn India</span></div>
@@ -543,7 +582,7 @@
 
                 <div class="skills-label">AI / ML</div>
                 <div class="skills-value">
-                    <span class="tag">TensorFlow</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Crew AI</span><span class="tag">RAG</span><span class="tag">Fine-tuning</span>
+                    <span class="tag">TensorFlow</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Crew AI</span><span class="tag">RAG</span><span class="tag">Fine-tuning</span><span class="tag">MCP</span><span class="tag">Claude API</span><span class="tag">Agentic Systems</span>
                 </div>
 
                 <div class="skills-label">Data Engineering</div>
@@ -558,7 +597,7 @@
 
                 <div class="skills-label">Cloud & Tools</div>
                 <div class="skills-value">
-                    <span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Power Automate</span>
+                    <span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Azure AI Search</span><span class="tag">Azure Container Apps</span><span class="tag">KEDA</span><span class="tag">n8n</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Power Automate</span>
                 </div>
             </div>
         </section>
@@ -573,6 +612,8 @@
                 <div class="cert-item"><i class="fas fa-award"></i> AWS — Introduction to Generative AI</div>
                 <div class="cert-item"><i class="fas fa-award"></i> Coursera — Databases and SQL for Data Science</div>
                 <div class="cert-item"><i class="fas fa-award"></i> Databricks — Generative AI Fundamentals</div>
+                <div class="cert-item"><i class="fas fa-award"></i> Anthropic — Claude Code in Action</div>
+                <div class="cert-item"><i class="fas fa-award"></i> Anthropic — Claude Co-work</div>
             </div>
         </section>
 
