@@ -9,7 +9,7 @@
 
 **Florida Atlantic University**
 Master's in Data Science and Engineering — Data Science & Analytics
-*Jan 2024 — May 2025 · Boca Raton, FL*
+*Jan 2024 — Dec 2025 · Boca Raton, FL*
 
 **Coursework:** Machine Learning, Large Language Models, Deep Learning, Data Visualization, Data Mining, Hadoop Systems, Cloud Computing (AWS), Database Systems, Big Data & Distributed Computing, Reinforcement Learning
 
