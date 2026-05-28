@@ -437,7 +437,7 @@
             </div>
             <div class="topbar-actions">
                 <a href="index.html" class="topbar-btn"><i class="fas fa-arrow-left"></i> Portfolio</a>
-                <button onclick="window.print()" class="topbar-btn filled"><i class="fas fa-download"></i> Download PDF</button>
+                <button onclick="downloadPDF()" class="topbar-btn filled" id="downloadBtn"><i class="fas fa-download"></i> Download PDF</button>
             </div>
         </div>
     </div>
@@ -619,6 +619,61 @@
         </section>
 
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        function downloadPDF() {
+            const btn = document.getElementById('downloadBtn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+            btn.disabled = true;
+
+            const element = document.querySelector('.resume');
+
+            html2pdf().set({
+                margin: [8, 10, 8, 10],
+                filename: 'Jaswanth_Gaddam_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    onclone: function(doc) {
+                        const body = doc.body;
+                        body.style.background = '#ffffff';
+                        body.style.color = '#333333';
+
+                        const styleEl = doc.createElement('style');
+                        styleEl.textContent = `
+                            body { background: #fff !important; color: #333 !important; }
+                            .topbar { display: none !important; }
+                            .resume { padding: 0 !important; max-width: 100% !important; }
+                            .resume-name { color: #111 !important; }
+                            .resume-role { color: #0a7a5a !important; }
+                            .r-section-title { color: #0a7a5a !important; border-color: #ccc !important; }
+                            .job-title, .edu-school, .project-name, .skills-label { color: #222 !important; }
+                            .job-date, .edu-date { color: #555 !important; }
+                            .job-list li, .project li, .skills-value, .edu-courses,
+                            .resume-contact span, .resume-contact a { color: #444 !important; }
+                            .job-list li::before, .project li::before { color: #0a7a5a !important; }
+                            .job-sublabel { color: #0a7a5a !important; opacity: 1 !important; }
+                            .cert-item { border-color: #0a7a5a !important; background: #f9f9f9 !important; color: #333 !important; }
+                            .cert-item i { color: #0a7a5a !important; }
+                            .tag { background: #e8f8f4 !important; color: #0a7a5a !important; }
+                            .skills-value { color: #444 !important; }
+                            a { color: #0a7a5a !important; }
+                            .fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+                        `;
+                        doc.head.appendChild(styleEl);
+                    }
+                },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            }).from(element).save().then(() => {
+                btn.innerHTML = '<i class="fas fa-download"></i> Download PDF';
+                btn.disabled = false;
+            }).catch(() => {
+                btn.innerHTML = '<i class="fas fa-download"></i> Download PDF';
+                btn.disabled = false;
+            });
+        }
+    </script>
 </body>
 
 </html>
