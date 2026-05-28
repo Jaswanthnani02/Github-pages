@@ -1,7 +1,7 @@
 # Jaswanth Gaddam
 **AI Strategy & Solutions Engineer · Data Engineer · AI/ML Specialist**
 
-📧 jaswanthnani02@icloud.com | 📞 +1 (561) 617-4480 | [LinkedIn](https://www.linkedin.com/in/gaddamjaswanth/) | [GitHub](https://github.com/Jaswanthnani02) | 📍 Chicago, IL
+📧 jaswanthnani02@gmail.com | 📞 +1 (561) 617-4480 | [LinkedIn](https://www.linkedin.com/in/gaddamjaswanth/) | [GitHub](https://github.com/Jaswanthnani02) | 📍 Chicago, IL
 
 ---
 
