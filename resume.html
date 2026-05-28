@@ -618,185 +618,268 @@
         </section>
 
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
         function downloadPDF() {
             const btn = document.getElementById('downloadBtn');
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
             btn.disabled = true;
 
-            const element = document.querySelector('.resume');
+            setTimeout(function() {
+                try {
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
 
-            html2pdf().set({
-                margin: [10, 12, 10, 12],
-                filename: 'Jaswanth_Gaddam_Resume.pdf',
-                image: { type: 'jpeg', quality: 0.99 },
-                html2canvas: {
-                    scale: 2,
-                    useCORS: true,
-                    onclone: function(doc) {
-                        // Remove topbar
-                        const topbar = doc.querySelector('.topbar');
-                        if (topbar) topbar.remove();
+                    const PW = 210, PH = 297;
+                    const ML = 14, MR = 14, MT = 14, MB = 14;
+                    const CW = PW - ML - MR;
+                    let y = MT;
 
-                        // Remove the original stylesheet entirely — clean slate
-                        doc.querySelectorAll('style').forEach(s => s.remove());
-
-                        // Strip decorative icons from section titles and cert items
-                        doc.querySelectorAll('.r-section-title i, .cert-item i').forEach(el => el.remove());
-
-                        // Convert skill tag badges → plain comma-separated text
-                        doc.querySelectorAll('.skills-value').forEach(container => {
-                            const tags = Array.from(container.querySelectorAll('.tag'));
-                            if (tags.length) {
-                                container.textContent = tags.map(t => t.textContent.trim()).join(', ');
-                            }
-                        });
-
-                        // Inject fresh, compact, monochrome PDF stylesheet
-                        const s = doc.createElement('style');
-                        s.textContent = `
-                            *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-                            body {
-                                font-family: 'Inter', Arial, Helvetica, sans-serif;
-                                background: #fff;
-                                color: #1a1a1a;
-                                font-size: 10.5px;
-                                line-height: 1.45;
-                            }
-                            a { color: #1a1a1a; text-decoration: none; }
-
-                            .resume { padding: 0; max-width: 100%; }
-
-                            /* ---- Header ---- */
-                            .resume-header {
-                                text-align: center;
-                                margin-bottom: 10px;
-                                padding-bottom: 8px;
-                                border-bottom: 1.5px solid #1a1a1a;
-                            }
-                            .resume-name {
-                                font-size: 22px;
-                                font-weight: 700;
-                                color: #1a1a1a;
-                                letter-spacing: -0.01em;
-                                margin-bottom: 3px;
-                            }
-                            .resume-role {
-                                font-size: 10.5px;
-                                color: #333;
-                                margin-bottom: 6px;
-                            }
-                            .resume-contact {
-                                display: flex;
-                                flex-wrap: wrap;
-                                justify-content: center;
-                                gap: 5px 14px;
-                                font-size: 9.5px;
-                            }
-                            .resume-contact a,
-                            .resume-contact span {
-                                display: inline-flex;
-                                align-items: center;
-                                gap: 4px;
-                                color: #1a1a1a;
-                            }
-                            .resume-contact i { font-size: 9px; }
-
-                            /* ---- Sections ---- */
-                            .r-section { margin-bottom: 12px; }
-                            .r-section-title {
-                                font-size: 9.5px;
-                                font-weight: 700;
-                                text-transform: uppercase;
-                                letter-spacing: 1.8px;
-                                color: #1a1a1a;
-                                margin-bottom: 7px;
-                                padding-bottom: 3px;
-                                border-bottom: 1px solid #1a1a1a;
-                            }
-
-                            /* ---- Education ---- */
-                            .edu-school { font-size: 12px; font-weight: 600; color: #1a1a1a; }
-                            .edu-degree { font-size: 10.5px; color: #333; margin: 2px 0; }
-                            .edu-date { font-size: 9.5px; color: #555; }
-                            .edu-courses { font-size: 9.5px; color: #444; margin-top: 4px; line-height: 1.4; }
-                            .edu-courses strong { color: #1a1a1a; }
-
-                            /* ---- Experience ---- */
-                            .job { margin-bottom: 10px; }
-                            .job-header {
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: baseline;
-                                gap: 8px;
-                                margin-bottom: 2px;
-                            }
-                            .job-title { font-size: 11.5px; font-weight: 600; color: #1a1a1a; }
-                            .job-title span { color: #444; font-weight: 500; }
-                            .job-date { font-size: 9.5px; color: #555; white-space: nowrap; }
-                            .job-sublabel {
-                                font-size: 9px;
-                                font-weight: 700;
-                                text-transform: uppercase;
-                                letter-spacing: 1.2px;
-                                color: #444;
-                                margin: 5px 0 2px;
-                            }
-                            .job-list { list-style: none; margin-top: 2px; }
-                            .job-list li {
-                                position: relative;
-                                padding-left: 11px;
-                                font-size: 10px;
-                                line-height: 1.45;
-                                margin-bottom: 2px;
-                                color: #333;
-                            }
-                            .job-list li::before { content: '•'; position: absolute; left: 0; }
-
-                            /* ---- Projects ---- */
-                            .project { margin-bottom: 8px; }
-                            .project-name { font-size: 11px; font-weight: 600; color: #1a1a1a; margin-bottom: 2px; }
-                            .project ul { list-style: none; }
-                            .project li {
-                                position: relative;
-                                padding-left: 11px;
-                                font-size: 10px;
-                                line-height: 1.45;
-                                margin-bottom: 1px;
-                                color: #333;
-                            }
-                            .project li::before { content: '•'; position: absolute; left: 0; }
-
-                            /* ---- Skills ---- */
-                            .skills-table {
-                                display: grid;
-                                grid-template-columns: 110px 1fr;
-                                gap: 4px 12px;
-                            }
-                            .skills-label { font-size: 10px; font-weight: 600; color: #1a1a1a; }
-                            .skills-value { font-size: 10px; color: #333; line-height: 1.5; }
-
-                            /* ---- Certifications ---- */
-                            .cert-grid {
-                                display: grid;
-                                grid-template-columns: repeat(2, 1fr);
-                                gap: 3px 16px;
-                            }
-                            .cert-item { font-size: 10px; color: #333; padding: 2px 0; }
-                        `;
-                        doc.head.appendChild(s);
+                    // Add new page if content won't fit
+                    function guard(h) {
+                        if (y + h > PH - MB) { doc.addPage(); y = MT; }
                     }
-                },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                pagebreak: { avoid: '.job, .project, .edu-item, .r-section-title' }
-            }).from(element).save().then(() => {
+
+                    // Section title with underline
+                    function section(title) {
+                        guard(14);
+                        y += 3;
+                        doc.setFontSize(9);
+                        doc.setFont('helvetica', 'bold');
+                        doc.setTextColor(20, 20, 20);
+                        doc.text(title, ML, y);
+                        y += 2;
+                        doc.setLineWidth(0.3);
+                        doc.setDrawColor(20, 20, 20);
+                        doc.line(ML, y, PW - MR, y);
+                        y += 5;
+                    }
+
+                    // Job title row with right-aligned date
+                    function jobRow(title, date) {
+                        guard(22);
+                        doc.setFontSize(10.5);
+                        doc.setFont('helvetica', 'bold');
+                        doc.setTextColor(20, 20, 20);
+                        doc.text(title, ML, y);
+                        doc.setFontSize(8.5);
+                        doc.setFont('helvetica', 'normal');
+                        doc.setTextColor(100, 100, 100);
+                        doc.text(date, PW - MR, y, { align: 'right' });
+                        y += 5.5;
+                    }
+
+                    // Sub-section label (BWT Brain, MCP Server etc.)
+                    function subLabel(text) {
+                        guard(9);
+                        y += 2;
+                        doc.setFontSize(8);
+                        doc.setFont('helvetica', 'bold');
+                        doc.setTextColor(80, 80, 80);
+                        doc.text(text.toUpperCase(), ML, y);
+                        y += 4.5;
+                    }
+
+                    // Bullet point with text wrapping
+                    function bul(text) {
+                        const LH = 4.4;
+                        doc.setFontSize(9.5);
+                        doc.setFont('helvetica', 'normal');
+                        doc.setTextColor(50, 50, 50);
+                        const lines = doc.splitTextToSize(text, CW - 5);
+                        lines.forEach(function(line, i) {
+                            guard(LH);
+                            if (i === 0) doc.text('-', ML, y);
+                            doc.text(line, ML + 4, y);
+                            y += LH;
+                        });
+                    }
+
+                    // Project name
+                    function projName(text) {
+                        guard(18);
+                        doc.setFontSize(10);
+                        doc.setFont('helvetica', 'bold');
+                        doc.setTextColor(20, 20, 20);
+                        doc.text(text, ML, y);
+                        y += 5;
+                    }
+
+                    // ── HEADER ──────────────────────────────
+                    doc.setFontSize(22);
+                    doc.setFont('helvetica', 'bold');
+                    doc.setTextColor(20, 20, 20);
+                    doc.text('Jaswanth Gaddam', PW / 2, y, { align: 'center' });
+                    y += 7;
+
+                    doc.setFontSize(10);
+                    doc.setFont('helvetica', 'normal');
+                    doc.setTextColor(60, 60, 60);
+                    doc.text('AI Strategy & Solutions Engineer  |  Data Engineer  |  AI/ML Specialist', PW / 2, y, { align: 'center' });
+                    y += 5;
+
+                    doc.setFontSize(8.5);
+                    doc.setTextColor(90, 90, 90);
+                    doc.text('jaswanthnani02@icloud.com  |  +1 (561) 617-4480  |  linkedin.com/in/gaddamjaswanth  |  Chicago, IL', PW / 2, y, { align: 'center' });
+                    y += 4;
+
+                    doc.setLineWidth(0.5);
+                    doc.setDrawColor(20, 20, 20);
+                    doc.line(ML, y, PW - MR, y);
+
+                    // ── EDUCATION ────────────────────────────
+                    section('EDUCATION');
+
+                    doc.setFontSize(12);
+                    doc.setFont('helvetica', 'bold');
+                    doc.setTextColor(20, 20, 20);
+                    doc.text('Florida Atlantic University', ML, y);
+                    y += 5;
+
+                    doc.setFontSize(9.5);
+                    doc.setFont('helvetica', 'normal');
+                    doc.setTextColor(50, 50, 50);
+                    doc.text("Master's in Data Science and Engineering -- Data Science & Analytics", ML, y);
+                    y += 4.5;
+
+                    doc.setFontSize(8.5);
+                    doc.setTextColor(100, 100, 100);
+                    doc.text('Jan 2024 - Dec 2025  |  Boca Raton, FL', ML, y);
+                    y += 4.5;
+
+                    doc.setFontSize(9);
+                    doc.setFont('helvetica', 'normal');
+                    doc.setTextColor(68, 68, 68);
+                    var courseLines = doc.splitTextToSize(
+                        'Coursework: Machine Learning, Large Language Models, Deep Learning, Data Visualization, Data Mining, Hadoop Systems, Cloud Computing (AWS), Database Systems, Big Data & Distributed Computing, Reinforcement Learning',
+                        CW
+                    );
+                    courseLines.forEach(function(line) { guard(4); doc.text(line, ML, y); y += 4; });
+
+                    // ── PROFESSIONAL EXPERIENCE ───────────────
+                    section('PROFESSIONAL EXPERIENCE');
+
+                    jobRow('AI Strategy & Solutions Engineer @ BetterWorld Technology (BWT)', 'Feb 2026 - Present');
+
+                    subLabel('BWT Brain - Unified Knowledge Corpus');
+                    bul('Architected a unified knowledge retrieval system consolidating IT Glue documentation across 188 client organizations into a single AI-searchable corpus, eliminating fragmented technician lookups');
+                    bul('Designed Azure-native pipeline: Python worker on Azure Container Apps syncing IT Glue documents into Azure AI Search with hybrid retrieval (BM25 keyword + vector embeddings + semantic re-ranking)');
+                    bul('Implemented KEDA-based autoscaling and concurrency tuning on Container Apps to handle bursty sync workloads cost-efficiently');
+                    bul('Companion components: CoS Agent for executive workflow assistance and Rewst integration for automation hand-off');
+
+                    subLabel('MCP Server Development');
+                    bul('Built ConnectWise MCP server enabling LLM-driven bulk ticket analysis, NOC alert board triage, workflow debugging, and ticket merge operations - used to produce the Clark Brands 90-day network review report and resolve a recurring EventID 528 workflow misfire');
+                    bul('Built IT Glue MCP server with curated tenant map for all 188 BWT client organizations; documented working endpoints, broken endpoints, and reliable tool-call patterns to maximize agent success rate');
+                    bul('Built Auvik MCP server powering client health reporting and cross-tenant device fleet enumeration');
+                    bul("Established pattern: MCP servers as connective tissue between Claude and BWT's PSA/RMM/documentation stack, turning multi-step manual workflows into single conversational queries");
+
+                    subLabel('AI Strategy & R&D');
+                    bul('Authored formal strategy brief for BWT leadership benchmarking BWT against top-tier MSPs; evaluated vendors including zofiQ (acquired by ConnectWise, Jan 2026), Cooper Copilot, Thread AI, and Rewst');
+                    bul('Drove vendor selection conversations and AI adoption roadmap recommendations for executive leadership');
+                    bul('Building autonomous IT ops platform combining n8n, Claude, React Flow, and MCP integrations; V1 targets L1 ticket triage automation for measurable ticket deflection');
+                    bul('Delivered 7-phase TaxValet onboarding automation plan projected to eliminate ~75% of manual onboarding time');
+
+                    y += 3;
+                    jobRow('Associate Data Engineer @ Nexturn India', 'Jun 2022 - Dec 2023');
+                    bul('Designed, developed, and maintained data pipelines for business applications using Matillion, Python, and SQL');
+                    bul('Managed PostgreSQL and relational databases ensuring accurate, consistent data management');
+                    bul('Created Tableau and Power BI dashboards providing insights into business processes and data patterns');
+                    bul('Led ETL processes transforming raw data into usable formats for analysis and reporting');
+                    bul('Implemented AWS cloud-based solutions for optimized data storage and processing');
+                    bul('Utilized Kafka and PySpark for large-scale data processing, improving efficiency significantly');
+
+                    // ── PROJECTS ──────────────────────────────
+                    section('PROJECTS');
+
+                    [
+                        { name: 'Generative AI Solutions & RAG Systems', bullets: [
+                            'Built custom Generative AI solutions using LangGraph, LangChain, and Crew AI frameworks',
+                            'Implemented RAG systems for enhanced knowledge retrieval and intelligent automation',
+                            'Developed multi-agent systems for complex business processes and decision-making',
+                            'Created custom LangGraph workflows for orchestrating AI applications'
+                        ]},
+                        { name: 'Azure Ticket Dispatcher - Automated Load Balancing', bullets: [
+                            'Designed Azure Function App for automated ticket assignment with intelligent load balancing',
+                            'Implemented efficient in-memory data processing minimizing API calls',
+                            'Developed smart assignment logic with real-time workload and priority metrics',
+                            'Created HTML dashboards for technician availability and assignment decision logs'
+                        ]},
+                        { name: 'ConnectWise SmartOps AI Integration', bullets: [
+                            'Built Python service integrating ConnectWise with OpenAI for intelligent ticket automation',
+                            'Developed RESTful APIs for automated ticket categorization using AI/ML models',
+                            'Designed real-time monitoring dashboards for API performance and automation metrics'
+                        ]},
+                        { name: 'Expedia Recon Database Maintenance', bullets: [
+                            'Retrieved and transformed Splunk Data Lake data using PySpark for production analysis',
+                            'Maintained PostgreSQL database for payment and FDS data reconciliation',
+                            'Developed Tableau dashboards to visualize financial discrepancies and track failures'
+                        ]},
+                        { name: 'Rxsense ETL Pipeline Documentation', bullets: [
+                            'Built and managed Matillion ETL pipelines integrating Python and SQL scripts',
+                            'Automated data workflows reducing manual intervention for large-scale transformations',
+                            'Documented data flows, dependencies, and transformation steps comprehensively'
+                        ]}
+                    ].forEach(function(p) {
+                        projName(p.name);
+                        p.bullets.forEach(bul);
+                        y += 1.5;
+                    });
+
+                    // ── TECHNICAL SKILLS ──────────────────────
+                    section('TECHNICAL SKILLS');
+
+                    var LW = 32;
+                    [
+                        ['Languages',       'Python, SQL, R, C'],
+                        ['AI / ML',         'TensorFlow, LangChain, LangGraph, Crew AI, RAG, Fine-tuning, MCP, Claude API, Agentic Systems'],
+                        ['Data Engineering','Apache Spark, Hadoop, Kafka, Matillion, ETL, Streamlit'],
+                        ['Databases',       'PostgreSQL, MySQL, Snowflake, SQL Server'],
+                        ['Cloud & Tools',   'AWS, Azure, Azure AI Search, Azure Container Apps, KEDA, n8n, Power BI, Tableau, Power Automate']
+                    ].forEach(function(row) {
+                        var valLines = doc.splitTextToSize(row[1], CW - LW - 2);
+                        guard(valLines.length * 4.5 + 2);
+                        doc.setFontSize(9.5).setFont('helvetica', 'bold').setTextColor(20, 20, 20);
+                        doc.text(row[0], ML, y);
+                        doc.setFont('helvetica', 'normal').setTextColor(50, 50, 50);
+                        doc.text(valLines[0], ML + LW, y);
+                        y += 4.5;
+                        for (var i = 1; i < valLines.length; i++) {
+                            doc.text(valLines[i], ML + LW, y);
+                            y += 4.5;
+                        }
+                    });
+
+                    // ── CERTIFICATIONS ────────────────────────
+                    section('CERTIFICATIONS');
+
+                    var certs = [
+                        'IBM - Data Analysis with Python',
+                        'IBM - Introduction to Data Engineering',
+                        'Snowflake - Hands-on All Badges',
+                        'AWS - Introduction to Generative AI',
+                        'Coursera - Databases and SQL for Data Science',
+                        'Databricks - Generative AI Fundamentals',
+                        'Anthropic - Claude Code in Action',
+                        'Anthropic - Claude Co-work'
+                    ];
+                    var colW = CW / 2 - 2;
+                    doc.setFontSize(9.5).setFont('helvetica', 'normal').setTextColor(50, 50, 50);
+                    for (var i = 0; i < certs.length; i += 2) {
+                        guard(5);
+                        doc.text('- ' + certs[i], ML, y);
+                        if (certs[i + 1]) doc.text('- ' + certs[i + 1], ML + colW + 6, y);
+                        y += 4.5;
+                    }
+
+                    doc.save('Jaswanth_Gaddam_Resume.pdf');
+
+                } catch(e) {
+                    console.error('PDF error:', e);
+                }
+
                 btn.innerHTML = '<i class="fas fa-download"></i> Download PDF';
                 btn.disabled = false;
-            }).catch(() => {
-                btn.innerHTML = '<i class="fas fa-download"></i> Download PDF';
-                btn.disabled = false;
-            });
+            }, 50);
         }
     </script>
 </body>
