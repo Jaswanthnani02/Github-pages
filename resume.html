@@ -3,225 +3,234 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Resume — Jaswanth Gaddam</title>
+    <title>Resume — Jaswanth Gaddam | Cloud and AI Solutions Engineer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --navy: #0a192f;
-            --navy-light: #112240;
-            --navy-lighter: #1d3461;
-            --slate: #8892b0;
-            --slate-light: #a8b2d1;
-            --slate-lighter: #ccd6f6;
-            --white: #e6f1ff;
-            --accent: #64ffda;
-            --accent-tint: rgba(100, 255, 218, 0.1);
-            --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
-            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --bg-deep: #070f1a;
+            --bg-base: #0a1628;
+            --accent: #0d9488;
+            --accent-bright: #2dd4bf;
+            --linkedin: #0a66c2;
+            --paper: #f8fafc;
+            --ink: #0f172a;
+            --ink-soft: #334155;
+            --ink-muted: #64748b;
+            --line: #e2e8f0;
+            --chip: #f1f5f9;
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; }
-
         body {
             font-family: var(--font-sans);
-            background: var(--navy);
-            color: var(--slate);
-            line-height: 1.6;
+            background: var(--bg-base);
+            color: var(--ink-soft);
+            line-height: 1.55;
             -webkit-font-smoothing: antialiased;
         }
 
-        ::selection { background: rgba(100,255,218,0.15); color: var(--slate-lighter); }
-        a { color: var(--accent); text-decoration: none; transition: all 0.2s ease; }
-        a:hover { color: var(--accent); }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: #0f766e; }
 
-        /* ---- Top Bar ---- */
         .topbar {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(10, 25, 47, 0.92);
+            background: rgba(7, 15, 26, 0.94);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(100, 255, 218, 0.08);
-            padding: 16px 0;
+            border-bottom: 1px solid rgba(45, 212, 191, 0.12);
+            padding: 14px 0;
         }
 
         .topbar-inner {
-            max-width: 860px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding: 0 28px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-        }
-
-        .topbar-left {
-            display: flex;
-            align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
         .topbar-logo {
             font-family: var(--font-mono);
             font-size: 18px;
             font-weight: 700;
-            color: var(--accent);
-        }
-
-        .topbar-divider {
-            width: 1px;
-            height: 20px;
-            background: var(--navy-lighter);
+            color: var(--accent-bright);
         }
 
         .topbar-title {
-            font-size: 14px;
-            color: var(--slate);
+            font-size: 13px;
+            color: #94a3b8;
+            margin-left: 12px;
+            padding-left: 12px;
+            border-left: 1px solid #334155;
         }
 
-        .topbar-actions {
-            display: flex;
-            gap: 12px;
-        }
+        .topbar-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 
         .topbar-btn {
             font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--accent);
-            border: 1px solid var(--accent);
+            font-size: 11px;
+            color: var(--accent-bright);
+            border: 1px solid rgba(45, 212, 191, 0.45);
             background: transparent;
-            padding: 8px 16px;
-            border-radius: 4px;
+            padding: 8px 14px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            transition: 0.2s ease;
         }
 
-        .topbar-btn:hover {
-            background: var(--accent-tint);
+        .topbar-btn:hover { background: rgba(45, 212, 191, 0.1); color: var(--accent-bright); }
+
+        .topbar-btn.linkedin {
+            background: var(--linkedin);
+            border-color: var(--linkedin);
+            color: #fff;
         }
+
+        .topbar-btn.linkedin:hover { background: #004182; color: #fff; }
 
         .topbar-btn.filled {
-            background: var(--accent-tint);
+            background: rgba(45, 212, 191, 0.12);
         }
 
-        /* ---- Resume Container ---- */
         .resume {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 48px 32px 80px;
+            max-width: 900px;
+            margin: 28px auto 64px;
+            padding: 40px 44px 48px;
+            background: var(--paper);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            border-radius: 10px;
+            box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.55);
+            color: var(--ink-soft);
         }
 
-        /* ---- Header ---- */
         .resume-header {
-            text-align: center;
-            margin-bottom: 48px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid var(--navy-lighter);
+            padding-bottom: 22px;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 22px;
         }
 
         .resume-name {
-            font-size: clamp(28px, 5vw, 40px);
+            font-size: clamp(28px, 4vw, 36px);
             font-weight: 700;
-            color: var(--slate-lighter);
+            color: var(--ink);
             letter-spacing: -0.02em;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .resume-role {
             font-family: var(--font-mono);
-            font-size: 14px;
+            font-size: 13px;
             color: var(--accent);
-            margin-bottom: 20px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .resume-summary {
+            font-size: 14px;
+            color: var(--ink-soft);
+            max-width: 640px;
+            margin-bottom: 16px;
         }
 
         .resume-contact {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            gap: 10px 18px;
             font-size: 13px;
+            margin-bottom: 16px;
         }
 
-        .resume-contact a,
-        .resume-contact span {
-            display: flex;
+        .resume-contact a, .resume-contact span {
+            display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: var(--slate);
-            transition: color 0.2s;
+            color: var(--ink-soft);
         }
 
         .resume-contact a:hover { color: var(--accent); }
         .resume-contact i { color: var(--accent); font-size: 12px; }
 
-        /* ---- Section ---- */
-        .r-section {
-            margin-bottom: 40px;
+        .linkedin-chip {
+            display: inline-flex !important;
+            align-items: center;
+            gap: 8px;
+            background: var(--linkedin);
+            color: #fff !important;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 12px;
         }
 
-        .r-section-title {
+        .linkedin-chip i { color: #fff !important; }
+        .linkedin-chip:hover { background: #004182; color: #fff !important; }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .metric {
+            background: #fff;
+            padding: 12px 14px;
+        }
+
+        .metric-value {
+            font-family: var(--font-mono);
             font-size: 13px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 2px;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: var(--ink-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .r-section { margin-bottom: 28px; }
+
+        .r-section-title {
+            font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 0.12em;
             color: var(--accent);
-            margin-bottom: 20px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(100, 255, 218, 0.15);
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--line);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .r-section-title i {
-            font-size: 12px;
-        }
-
-        /* ---- Education ---- */
-        .edu-item {
-            margin-bottom: 16px;
-        }
-
-        .edu-school {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--slate-lighter);
-        }
-
-        .edu-degree {
-            font-size: 14px;
-            color: var(--slate-light);
-            margin: 2px 0;
-        }
-
-        .edu-date {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--slate);
-        }
-
-        .edu-courses {
-            margin-top: 8px;
-            font-size: 13px;
-            color: var(--slate);
-            line-height: 1.7;
-        }
-
-        .edu-courses strong {
-            color: var(--slate-light);
-        }
-
-        /* ---- Experience ---- */
-        .job {
-            margin-bottom: 28px;
+        .job { margin-bottom: 20px; padding-left: 14px; border-left: 2px solid var(--line); position: relative; }
+        .job:first-of-type { border-left-color: var(--accent); }
+        .job:first-of-type::before {
+            content: "";
+            position: absolute;
+            left: -5px; top: 6px;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
         }
 
         .job-header {
@@ -229,659 +238,312 @@
             justify-content: space-between;
             align-items: baseline;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 4px;
+            gap: 6px;
+            margin-bottom: 8px;
         }
 
-        .job-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--slate-lighter);
-        }
+        .job-title { font-size: 15px; font-weight: 650; color: var(--ink); }
+        .job-title span { color: var(--accent); font-weight: 500; }
+        .job-date { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); }
 
-        .job-title span {
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .job-date {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--slate);
-            white-space: nowrap;
-        }
-
-        .job-list {
+        .job-list, .project ul {
             list-style: none;
-            margin-top: 8px;
-        }
-
-        .job-list li {
-            position: relative;
-            padding-left: 20px;
-            font-size: 14px;
-            line-height: 1.7;
-            margin-bottom: 4px;
-            color: var(--slate-light);
-        }
-
-        .job-list li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        .job-sublabel {
-            font-family: var(--font-mono);
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent);
-            opacity: 0.75;
-            margin: 10px 0 4px;
-        }
-
-        /* ---- Projects ---- */
-        .project {
-            margin-bottom: 24px;
-        }
-
-        .project-name {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--slate-lighter);
-            margin-bottom: 6px;
-        }
-
-        .project ul {
-            list-style: none;
-        }
-
-        .project li {
-            position: relative;
-            padding-left: 20px;
-            font-size: 13px;
-            line-height: 1.7;
-            margin-bottom: 3px;
-        }
-
-        .project li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        /* ---- Skills ---- */
-        .skills-table {
-            display: grid;
-            grid-template-columns: 160px 1fr;
-            gap: 12px 24px;
-            font-size: 14px;
-        }
-
-        .skills-label {
-            font-weight: 600;
-            color: var(--slate-lighter);
-            font-size: 13px;
-        }
-
-        .skills-value {
-            color: var(--slate-light);
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .skills-value .tag {
-            display: inline-block;
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--accent);
-            background: var(--accent-tint);
-            padding: 2px 10px;
-            border-radius: 3px;
-            margin: 2px 4px 2px 0;
-        }
-
-        /* ---- Certifications ---- */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 12px;
-        }
-
-        .cert-item {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .job-list li, .project ul li {
+            position: relative;
+            padding-left: 16px;
             font-size: 13px;
-            color: var(--slate-light);
-            background: var(--navy-light);
-            padding: 12px 16px;
-            border-radius: 4px;
-            border-left: 2px solid var(--accent);
-            transition: all 0.2s ease;
+            color: var(--ink-soft);
+            line-height: 1.5;
         }
 
-        .cert-item:hover {
-            transform: translateX(4px);
-            background: rgba(100, 255, 218, 0.03);
-        }
-
-        .cert-item i {
+        .job-list li::before, .project ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
             color: var(--accent);
-            font-size: 12px;
+        }
+
+        .edu-item { display: flex; gap: 16px; align-items: flex-start; }
+        .edu-photo {
+            width: 88px; height: 118px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--accent);
             flex-shrink: 0;
         }
+        .edu-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block; }
+        .edu-school { font-size: 15px; font-weight: 650; color: var(--ink); }
+        .edu-degree { font-size: 13px; color: var(--ink-soft); margin: 2px 0; }
+        .edu-date { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); }
+        .edu-courses { margin-top: 6px; font-size: 12px; color: var(--ink-muted); line-height: 1.55; }
+        .edu-courses strong { color: var(--ink-soft); }
 
-        /* ---- Print ---- */
-        @media print {
-            body { background: #fff; color: #333; }
-            .topbar { display: none !important; }
-            .resume { padding: 0; max-width: 100%; }
-            .resume-name { color: #111; }
-            .resume-role { color: #0a7; }
-            .r-section-title { color: #0a7; border-color: #ccc; }
-            .job-title, .edu-school, .project-name, .skills-label { color: #222; }
-            .job-list li, .project li, .skills-value, .edu-courses, .resume-contact span, .resume-contact a { color: #444; }
-            .job-list li::before, .project li::before { color: #0a7; }
-            .cert-item { border-color: #0a7; background: #f9f9f9; color: #333; }
-            .cert-item i { color: #0a7; }
-            a { color: #0a7; }
+        .project { margin-bottom: 14px; }
+        .project.highlight {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--accent);
+            border-radius: 6px;
+            padding: 12px 14px;
+            margin-bottom: 16px;
+        }
+        .project-name { font-size: 14px; font-weight: 650; color: var(--ink); margin-bottom: 6px; }
+        .project-meta {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 500;
+            color: var(--accent);
+            margin-left: 6px;
         }
 
-        /* ---- Responsive ---- */
-        @media (max-width: 600px) {
-            .resume { padding: 32px 16px 60px; }
-            .topbar-inner { padding: 0 16px; }
+        .skills-table {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 10px 14px;
+            align-items: start;
+        }
+        .skills-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--ink-muted);
+            padding-top: 4px;
+        }
+        .skills-value { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tag {
+            font-size: 11px;
+            background: var(--chip);
+            border: 1px solid var(--line);
+            color: var(--ink-soft);
+            padding: 4px 9px;
+            border-radius: 4px;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 8px;
+        }
+        .cert-item {
+            font-size: 12px;
+            color: var(--ink-soft);
+            padding: 8px 10px;
+            border-left: 2px solid var(--accent);
+            background: #fff;
+            border-radius: 0 4px 4px 0;
+        }
+        .cert-item i { color: var(--accent); margin-right: 6px; }
+
+        .fade-in { animation: fadeIn 0.45s ease forwards; opacity: 0; transform: translateY(8px); }
+        .fade-in:nth-child(1) { animation-delay: 0.05s; }
+        .fade-in:nth-child(2) { animation-delay: 0.1s; }
+        .fade-in:nth-child(3) { animation-delay: 0.15s; }
+        .fade-in:nth-child(4) { animation-delay: 0.2s; }
+        .fade-in:nth-child(5) { animation-delay: 0.25s; }
+        .fade-in:nth-child(6) { animation-delay: 0.3s; }
+        @keyframes fadeIn { to { opacity: 1; transform: none; } }
+
+        @media (max-width: 720px) {
+            .resume { margin: 12px; padding: 24px 18px 32px; }
+            .metrics { grid-template-columns: 1fr; }
+            .skills-table { grid-template-columns: 1fr; }
+            .edu-item { flex-direction: column; align-items: center; text-align: center; }
             .topbar-title { display: none; }
-            .topbar-divider { display: none; }
-            .resume-contact { gap: 12px; font-size: 12px; }
-            .skills-table { grid-template-columns: 1fr; gap: 8px 0; }
-            .skills-label { margin-top: 8px; }
-            .job-header { flex-direction: column; gap: 2px; }
-            .cert-grid { grid-template-columns: 1fr; }
         }
 
-        /* ---- Fade-in animation ---- */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(12px);
-            animation: fadeIn 0.5s ease forwards;
+        @media print {
+            @page { size: letter; margin: 0.5in; }
+            body { background: #fff; }
+            .topbar { display: none !important; }
+            .screen-only { display: none !important; }
+            .resume {
+                margin: 0; padding: 0; border: none; border-radius: 0;
+                box-shadow: none; max-width: none; background: #fff;
+            }
+            .job, .project, .cert-item { break-inside: avoid; }
+            a { color: var(--ink); }
+            .linkedin-chip { background: transparent; color: var(--linkedin) !important; border: 1px solid var(--linkedin); }
+            .linkedin-chip i { color: var(--linkedin) !important; }
         }
 
-        .fade-in:nth-child(1) { animation-delay: 0.1s; }
-        .fade-in:nth-child(2) { animation-delay: 0.15s; }
-        .fade-in:nth-child(3) { animation-delay: 0.2s; }
-        .fade-in:nth-child(4) { animation-delay: 0.25s; }
-        .fade-in:nth-child(5) { animation-delay: 0.3s; }
-        .fade-in:nth-child(6) { animation-delay: 0.35s; }
-        .fade-in:nth-child(7) { animation-delay: 0.4s; }
-
-        @keyframes fadeIn {
-            to { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in { animation: none; opacity: 1; transform: none; }
         }
     </style>
 </head>
 
 <body>
-    <!-- Top Bar -->
     <div class="topbar">
         <div class="topbar-inner">
-            <div class="topbar-left">
+            <div style="display:flex;align-items:center;">
                 <a href="index.html" class="topbar-logo">JG.</a>
-                <div class="topbar-divider"></div>
                 <span class="topbar-title">Resume</span>
             </div>
             <div class="topbar-actions">
                 <a href="index.html" class="topbar-btn"><i class="fas fa-arrow-left"></i> Portfolio</a>
-                <button onclick="downloadPDF()" class="topbar-btn filled" id="downloadBtn"><i class="fas fa-download"></i> Download PDF</button>
+                <a href="https://www.linkedin.com/in/gaddamjaswanth/" class="topbar-btn linkedin" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <button onclick="window.print()" class="topbar-btn filled"><i class="fas fa-download"></i> PDF</button>
             </div>
         </div>
     </div>
 
-    <!-- Resume Content -->
     <div class="resume">
-
-        <!-- Header -->
         <header class="resume-header fade-in">
             <h1 class="resume-name">Jaswanth Gaddam</h1>
-            <p class="resume-role">AI Strategy &amp; Solutions Engineer &middot; Data Engineer &middot; AI/ML Specialist</p>
+            <p class="resume-role">Cloud and AI Solutions Engineer</p>
+            <p class="resume-summary">Azure automation, MCP integrations, and AI-assisted workflows for MSP platforms. Chicago, IL · F-1 OPT · Open to remote, hybrid, on-site, and relocation.</p>
             <div class="resume-contact">
-                <a href="mailto:jaswanthnani02@gmail.com"><i class="fas fa-envelope"></i> jaswanthnani02@gmail.com</a>
+                <a href="mailto:Jaswanthnani02@gmail.com"><i class="fas fa-envelope"></i> Jaswanthnani02@gmail.com</a>
                 <a href="tel:+15616174480"><i class="fas fa-phone"></i> +1 (561) 617-4480</a>
-                <a href="https://www.linkedin.com/in/gaddamjaswanth/" target="_blank"><i class="fab fa-linkedin"></i> gaddamjaswanth</a>
+                <a class="linkedin-chip print-url" href="https://www.linkedin.com/in/gaddamjaswanth/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> linkedin.com/in/gaddamjaswanth</a>
                 <span><i class="fas fa-map-marker-alt"></i> Chicago, IL</span>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-value">100k+ tickets</div>
+                    <div class="metric-label">Auto-assigned · 6 months</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">5–10 minutes</div>
+                    <div class="metric-label">Onboarding (was 2–5 days)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">$35/hr assumed</div>
+                    <div class="metric-label">Dispatch time-saved costing</div>
+                </div>
             </div>
         </header>
 
-        <!-- Education -->
-        <section class="r-section fade-in">
-            <h2 class="r-section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-            <div class="edu-item">
-                <div class="edu-school">Florida Atlantic University</div>
-                <div class="edu-degree">Master's in Data Science and Engineering — Data Science & Analytics</div>
-                <div class="edu-date">Jan 2024 — Dec 2025 &middot; Boca Raton, FL</div>
-                <p class="edu-courses">
-                    <strong>Coursework:</strong> Machine Learning, Large Language Models, Deep Learning,
-                    Data Visualization, Data Mining, Hadoop Systems, Cloud Computing (AWS), Database Systems,
-                    Big Data & Distributed Computing, Reinforcement Learning
-                </p>
-            </div>
-        </section>
-
-        <!-- Experience -->
         <section class="r-section fade-in">
             <h2 class="r-section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
             <div class="job">
                 <div class="job-header">
-                    <div class="job-title">AI Strategy &amp; Solutions Engineer <span>@ BetterWorld Technology (BWT)</span></div>
-                    <div class="job-date">Feb 2026 — Present</div>
+                    <div class="job-title">Cloud and AI Solutions Engineer <span>@ BetterWorld Technology</span></div>
+                    <div class="job-date">Oct 2025 — Present</div>
                 </div>
-                <div class="job-sublabel">BWT Brain — Unified Knowledge Corpus</div>
                 <ul class="job-list">
-                    <li>Architected a unified knowledge retrieval system consolidating IT Glue documentation across 188 client organizations into a single AI-searchable corpus, eliminating fragmented technician lookups</li>
-                    <li>Designed Azure-native pipeline: Python worker on Azure Container Apps syncing IT Glue documents into Azure AI Search with hybrid retrieval (BM25 keyword + vector embeddings + semantic re-ranking)</li>
-                    <li>Implemented KEDA-based autoscaling and concurrency tuning on Container Apps to handle bursty sync workloads cost-efficiently</li>
-                    <li>Companion components: CoS Agent for executive workflow assistance and Rewst integration for automation hand-off</li>
-                </ul>
-                <div class="job-sublabel">MCP Server Development</div>
-                <ul class="job-list">
-                    <li>Built ConnectWise MCP server enabling LLM-driven bulk ticket analysis, NOC alert board triage, workflow debugging, and ticket merge operations — used to produce the Clark Brands 90-day network review report and resolve a recurring EventID 528 workflow misfire</li>
-                    <li>Built IT Glue MCP server with curated tenant map for all 188 BWT client organizations; documented working endpoints, broken endpoints, and reliable tool-call patterns to maximize agent success rate</li>
-                    <li>Built Auvik MCP server powering client health reporting and cross-tenant device fleet enumeration</li>
-                    <li>Established pattern: MCP servers as connective tissue between Claude and BWT's PSA/RMM/documentation stack, turning multi-step manual workflows into single conversational queries</li>
-                </ul>
-                <div class="job-sublabel">AI Strategy &amp; R&amp;D</div>
-                <ul class="job-list">
-                    <li>Authored formal strategy brief for BWT leadership benchmarking BWT against top-tier MSPs; evaluated vendors including zofiQ (acquired by ConnectWise, Jan 2026), Cooper Copilot, Thread AI, and Rewst</li>
-                    <li>Drove vendor selection conversations and AI adoption roadmap recommendations for executive leadership</li>
-                    <li>Building autonomous IT ops platform combining n8n, Claude, React Flow, and MCP integrations; V1 targets L1 ticket triage automation for measurable ticket deflection</li>
-                    <li>Delivered 7-phase TaxValet onboarding automation plan projected to eliminate ~75% of manual onboarding time</li>
+                    <li>Built an Azure Functions ticket dispatcher on the ConnectWise Manage API (board selection, round-robin and weighted-average assignment) that auto-assigned 100,000+ tickets in the last 6 months; estimated labor cost savings from measured time saved at an assumed $35/hour technician rate</li>
+                    <li>Designed ConnectWise MCP servers with tool descriptions, authentication, and RBAC; deployed on Azure Containers with auto-scaling for SmileBack, ConnectWise Asio (RMM), and ConnectWise CPQ</li>
+                    <li>Architected a Cosmos DB + MCP data layer ingesting IT Glue, ConnectWise projects, invoices, tickets, technician data, RMM devices, disk utilization, SmileBack feedback, and CPQ data</li>
+                    <li>Built a Cosmos DB ops dashboard hosted on Azure Containers with auto-scaling and Azure Redis snapshot caching, with ConnectWise API and Microsoft 365: time-bounded ticket views, technician performance, account health scores, MTTR by account, and priority-sorted bar/Sankey charts; Azure AI Foundry analyzes ticket notes to explain unresolved tickets; in-dashboard messaging with user credentials</li>
+                    <li>Built weekly flash reports, monthly ops reports (tickets processed/closed, CSAT, MTTR by SLA), and per-client home-health scores from ticket hygiene, customer feedback, time-to-response, and sentiment</li>
+                    <li>Cut new-hire onboarding from 2–5 business days to 5–10 minutes (when approvals are instant) via n8n — licenses, Microsoft Graph credentials, enterprise apps, managers, calendar, credential delivery, and welcome email</li>
+                    <li>Built Power Automate feedback-form and scheduled-task flows; built Cowork agents for ticket/email scheduling; used Claude in the engineering workflow for implementation, testing, and deployment</li>
                 </ul>
             </div>
-
             <div class="job">
                 <div class="job-header">
                     <div class="job-title">Associate Data Engineer <span>@ Nexturn India</span></div>
                     <div class="job-date">Jun 2022 — Dec 2023</div>
                 </div>
                 <ul class="job-list">
-                    <li>Designed, developed, and maintained data pipelines for business applications using Matillion, Python, and SQL</li>
-                    <li>Managed PostgreSQL and relational databases ensuring accurate, consistent data management</li>
-                    <li>Created Tableau and Power BI dashboards providing insights into business processes and data patterns</li>
-                    <li>Led ETL processes transforming raw data into usable formats for analysis and reporting</li>
-                    <li>Implemented AWS cloud-based solutions for optimized data storage and processing</li>
-                    <li>Utilized Kafka and PySpark for large-scale data processing, improving efficiency significantly</li>
+                    <li>Built and operated ETL pipelines with Matillion, Python, and SQL for business applications</li>
+                    <li>Transformed Splunk Data Lake extracts with PySpark for payment and FDS reconciliation workflows</li>
+                    <li>Maintained PostgreSQL databases for financial reconciliation and data quality monitoring</li>
+                    <li>Delivered Tableau and Power BI dashboards for operational and financial reporting</li>
+                    <li>Implemented AWS-based storage and processing for data pipeline workloads</li>
                 </ul>
             </div>
         </section>
 
-        <!-- Projects -->
         <section class="r-section fade-in">
-            <h2 class="r-section-title"><i class="fas fa-code"></i> Projects</h2>
+            <h2 class="r-section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="edu-item">
+                <div class="edu-photo screen-only">
+                    <img src="graduation.jpg" alt="Jaswanth Gaddam at FAU graduation" width="88" height="118">
+                </div>
+                <div class="edu-body">
+                    <div class="edu-school">Florida Atlantic University</div>
+                    <div class="edu-degree">Master's in Data Science and Engineering — Data Science &amp; Analytics</div>
+                    <div class="edu-date">Jan 2024 — May 2025 · Boca Raton, FL · Full-time graduate study</div>
+                    <p class="edu-courses">
+                        <strong>Coursework:</strong> Machine Learning, Large Language Models, Deep Learning,
+                        Data Visualization, Data Mining, Cloud Computing (AWS), Database Systems,
+                        Big Data &amp; Distributed Computing, Reinforcement Learning
+                    </p>
+                </div>
+            </div>
+        </section>
 
-            <div class="project">
-                <div class="project-name">Generative AI Solutions & RAG Systems</div>
+        <section class="r-section fade-in">
+            <h2 class="r-section-title"><i class="fas fa-code"></i> Selected Work</h2>
+
+            <div class="project highlight">
+                <div class="project-name">Ops Analytics Dashboard <span class="project-meta">BetterWorld Technology</span></div>
                 <ul>
-                    <li>Built custom Generative AI solutions using LangGraph, LangChain, and Crew AI frameworks</li>
-                    <li>Implemented RAG systems for enhanced knowledge retrieval and intelligent automation</li>
-                    <li>Developed multi-agent systems for complex business processes and decision-making</li>
-                    <li>Created custom LangGraph workflows for orchestrating AI applications</li>
+                    <li>Cosmos DB–backed ops dashboard on Azure Containers with auto-scaling and Azure Redis snapshot caching; ConnectWise API + Microsoft 365; time-bounded ticket views, technician performance, account health, MTTR; Sankey/bar charts by volume, priority, company, and board</li>
+                    <li>Azure AI Foundry note analysis for unresolved tickets; in-dashboard messaging with user credentials</li>
                 </ul>
             </div>
 
             <div class="project">
-                <div class="project-name">Azure Ticket Dispatcher — Automated Load Balancing</div>
+                <div class="project-name">Dispatch Optimization Dashboard <span class="project-meta">BetterWorld Technology</span></div>
                 <ul>
-                    <li>Designed Azure Function App for automated ticket assignment with intelligent load balancing</li>
-                    <li>Implemented efficient in-memory data processing minimizing API calls</li>
-                    <li>Developed smart assignment logic with real-time workload and priority metrics</li>
-                    <li>Created HTML dashboards for technician availability and assignment decision logs</li>
+                    <li>Azure Functions metrics dashboard for tickets processed, time saved, fairness, and estimated cost savings at an assumed $35/hour technician rate; history in Azure Blob Storage</li>
                 </ul>
             </div>
 
             <div class="project">
-                <div class="project-name">ConnectWise SmartOps AI Integration</div>
+                <div class="project-name">ConnectWise SmartOps AI Integration <span class="project-meta">BetterWorld Technology</span></div>
                 <ul>
-                    <li>Built Python service integrating ConnectWise with OpenAI for intelligent ticket automation</li>
-                    <li>Developed RESTful APIs for automated ticket categorization using AI/ML models</li>
-                    <li>Designed real-time monitoring dashboards for API performance and automation metrics</li>
+                    <li>Python service integrating ConnectWise with AI-assisted ticket categorization/prioritization and Power Automate workflow hooks</li>
                 </ul>
             </div>
 
             <div class="project">
-                <div class="project-name">Expedia Recon Database Maintenance</div>
+                <div class="project-name">Generative AI Solutions &amp; RAG Systems</div>
                 <ul>
-                    <li>Retrieved and transformed Splunk Data Lake data using PySpark for production analysis</li>
-                    <li>Maintained PostgreSQL database for payment and FDS data reconciliation</li>
-                    <li>Developed Tableau dashboards to visualize financial discrepancies and track failures</li>
+                    <li>LangGraph, LangChain, and Crew AI solutions including RAG pipelines and multi-agent workflow orchestration</li>
                 </ul>
             </div>
 
             <div class="project">
-                <div class="project-name">Rxsense ETL Pipeline Documentation</div>
+                <div class="project-name">Expedia Recon &amp; Rxsense ETL <span class="project-meta">Nexturn — Client Engagements</span></div>
                 <ul>
-                    <li>Built and managed Matillion ETL pipelines integrating Python and SQL scripts</li>
-                    <li>Automated data workflows reducing manual intervention for large-scale transformations</li>
-                    <li>Documented data flows, dependencies, and transformation steps comprehensively</li>
+                    <li>Expedia: Splunk Data Lake to PostgreSQL reconciliation with PySpark and Tableau discrepancy reporting</li>
+                    <li>Rxsense: Matillion ETL with Python/SQL integration and documented data flows</li>
                 </ul>
             </div>
         </section>
 
-        <!-- Skills -->
         <section class="r-section fade-in">
             <h2 class="r-section-title"><i class="fas fa-wrench"></i> Technical Skills</h2>
             <div class="skills-table">
                 <div class="skills-label">Languages</div>
                 <div class="skills-value">
-                    <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">R</span><span class="tag">C</span>
+                    <span class="tag">Python</span><span class="tag">SQL</span>
                 </div>
-
-                <div class="skills-label">AI / ML</div>
+                <div class="skills-label">Cloud &amp; Platforms</div>
                 <div class="skills-value">
-                    <span class="tag">TensorFlow</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Crew AI</span><span class="tag">RAG</span><span class="tag">Fine-tuning</span><span class="tag">MCP</span><span class="tag">Claude API</span><span class="tag">Agentic Systems</span>
+                    <span class="tag">Azure Functions</span><span class="tag">Azure Containers</span><span class="tag">Cosmos DB</span><span class="tag">Azure Redis</span><span class="tag">Azure AI Foundry</span><span class="tag">Microsoft 365</span><span class="tag">ConnectWise</span><span class="tag">AWS</span>
                 </div>
-
+                <div class="skills-label">AI &amp; Automation</div>
+                <div class="skills-value">
+                    <span class="tag">MCP</span><span class="tag">n8n</span><span class="tag">Power Automate</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">RAG</span>
+                </div>
                 <div class="skills-label">Data Engineering</div>
                 <div class="skills-value">
-                    <span class="tag">Apache Spark</span><span class="tag">Hadoop</span><span class="tag">Kafka</span><span class="tag">Matillion</span><span class="tag">ETL</span><span class="tag">Streamlit</span>
-                </div>
-
-                <div class="skills-label">Databases</div>
-                <div class="skills-value">
-                    <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Snowflake</span><span class="tag">SQL Server</span>
-                </div>
-
-                <div class="skills-label">Cloud & Tools</div>
-                <div class="skills-value">
-                    <span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Azure AI Search</span><span class="tag">Azure Container Apps</span><span class="tag">KEDA</span><span class="tag">n8n</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Power Automate</span>
+                    <span class="tag">Apache Spark</span><span class="tag">PySpark</span><span class="tag">Kafka</span><span class="tag">Matillion</span><span class="tag">ETL</span><span class="tag">PostgreSQL</span><span class="tag">Power BI</span><span class="tag">Tableau</span>
                 </div>
             </div>
         </section>
 
-        <!-- Certifications -->
         <section class="r-section fade-in">
             <h2 class="r-section-title"><i class="fas fa-certificate"></i> Certifications</h2>
             <div class="cert-grid">
+                <div class="cert-item"><i class="fas fa-award"></i> Snowflake — Hands-on All Badges</div>
+                <div class="cert-item"><i class="fas fa-award"></i> Databricks — Generative AI Fundamentals</div>
                 <div class="cert-item"><i class="fas fa-award"></i> IBM — Data Analysis with Python</div>
                 <div class="cert-item"><i class="fas fa-award"></i> IBM — Introduction to Data Engineering</div>
-                <div class="cert-item"><i class="fas fa-award"></i> Snowflake — Hands-on All Badges</div>
                 <div class="cert-item"><i class="fas fa-award"></i> AWS — Introduction to Generative AI</div>
                 <div class="cert-item"><i class="fas fa-award"></i> Coursera — Databases and SQL for Data Science</div>
-                <div class="cert-item"><i class="fas fa-award"></i> Databricks — Generative AI Fundamentals</div>
-                <div class="cert-item"><i class="fas fa-award"></i> Anthropic — Claude Code in Action</div>
-                <div class="cert-item"><i class="fas fa-award"></i> Anthropic — Claude Co-work</div>
             </div>
         </section>
-
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script>
-        function downloadPDF() {
-            const btn = document.getElementById('downloadBtn');
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
-            btn.disabled = true;
-
-            setTimeout(function() {
-                try {
-                    const { jsPDF } = window.jspdf;
-                    const doc = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
-
-                    const PW = 210, PH = 297;
-                    const ML = 14, MR = 14, MT = 14, MB = 14;
-                    const CW = PW - ML - MR;
-                    let y = MT;
-
-                    // Add new page if content won't fit
-                    function guard(h) {
-                        if (y + h > PH - MB) { doc.addPage(); y = MT; }
-                    }
-
-                    // Section title with underline
-                    function section(title) {
-                        guard(14);
-                        y += 3;
-                        doc.setFontSize(9);
-                        doc.setFont('helvetica', 'bold');
-                        doc.setTextColor(20, 20, 20);
-                        doc.text(title, ML, y);
-                        y += 2;
-                        doc.setLineWidth(0.3);
-                        doc.setDrawColor(20, 20, 20);
-                        doc.line(ML, y, PW - MR, y);
-                        y += 5;
-                    }
-
-                    // Job title row with right-aligned date
-                    function jobRow(title, date) {
-                        guard(22);
-                        doc.setFontSize(10.5);
-                        doc.setFont('helvetica', 'bold');
-                        doc.setTextColor(20, 20, 20);
-                        doc.text(title, ML, y);
-                        doc.setFontSize(8.5);
-                        doc.setFont('helvetica', 'normal');
-                        doc.setTextColor(100, 100, 100);
-                        doc.text(date, PW - MR, y, { align: 'right' });
-                        y += 5.5;
-                    }
-
-                    // Sub-section label (BWT Brain, MCP Server etc.)
-                    function subLabel(text) {
-                        guard(9);
-                        y += 2;
-                        doc.setFontSize(8);
-                        doc.setFont('helvetica', 'bold');
-                        doc.setTextColor(80, 80, 80);
-                        doc.text(text.toUpperCase(), ML, y);
-                        y += 4.5;
-                    }
-
-                    // Bullet point with text wrapping
-                    function bul(text) {
-                        const LH = 4.4;
-                        doc.setFontSize(9.5);
-                        doc.setFont('helvetica', 'normal');
-                        doc.setTextColor(50, 50, 50);
-                        const lines = doc.splitTextToSize(text, CW - 5);
-                        lines.forEach(function(line, i) {
-                            guard(LH);
-                            if (i === 0) doc.text('-', ML, y);
-                            doc.text(line, ML + 4, y);
-                            y += LH;
-                        });
-                    }
-
-                    // Project name
-                    function projName(text) {
-                        guard(18);
-                        doc.setFontSize(10);
-                        doc.setFont('helvetica', 'bold');
-                        doc.setTextColor(20, 20, 20);
-                        doc.text(text, ML, y);
-                        y += 5;
-                    }
-
-                    // ── HEADER ──────────────────────────────
-                    doc.setFontSize(22);
-                    doc.setFont('helvetica', 'bold');
-                    doc.setTextColor(20, 20, 20);
-                    doc.text('Jaswanth Gaddam', PW / 2, y, { align: 'center' });
-                    y += 7;
-
-                    doc.setFontSize(10);
-                    doc.setFont('helvetica', 'normal');
-                    doc.setTextColor(60, 60, 60);
-                    doc.text('AI Strategy & Solutions Engineer  |  Data Engineer  |  AI/ML Specialist', PW / 2, y, { align: 'center' });
-                    y += 5;
-
-                    doc.setFontSize(8.5);
-                    doc.setTextColor(90, 90, 90);
-                    doc.text('jaswanthnani02@gmail.com  |  +1 (561) 617-4480  |  linkedin.com/in/gaddamjaswanth  |  Chicago, IL', PW / 2, y, { align: 'center' });
-                    y += 4;
-
-                    doc.setLineWidth(0.5);
-                    doc.setDrawColor(20, 20, 20);
-                    doc.line(ML, y, PW - MR, y);
-
-                    // ── EDUCATION ────────────────────────────
-                    section('EDUCATION');
-
-                    doc.setFontSize(12);
-                    doc.setFont('helvetica', 'bold');
-                    doc.setTextColor(20, 20, 20);
-                    doc.text('Florida Atlantic University', ML, y);
-                    y += 5;
-
-                    doc.setFontSize(9.5);
-                    doc.setFont('helvetica', 'normal');
-                    doc.setTextColor(50, 50, 50);
-                    doc.text("Master's in Data Science and Engineering -- Data Science & Analytics", ML, y);
-                    y += 4.5;
-
-                    doc.setFontSize(8.5);
-                    doc.setTextColor(100, 100, 100);
-                    doc.text('Jan 2024 - Dec 2025  |  Boca Raton, FL', ML, y);
-                    y += 4.5;
-
-                    doc.setFontSize(9);
-                    doc.setFont('helvetica', 'normal');
-                    doc.setTextColor(68, 68, 68);
-                    var courseLines = doc.splitTextToSize(
-                        'Coursework: Machine Learning, Large Language Models, Deep Learning, Data Visualization, Data Mining, Hadoop Systems, Cloud Computing (AWS), Database Systems, Big Data & Distributed Computing, Reinforcement Learning',
-                        CW
-                    );
-                    courseLines.forEach(function(line) { guard(4); doc.text(line, ML, y); y += 4; });
-
-                    // ── PROFESSIONAL EXPERIENCE ───────────────
-                    section('PROFESSIONAL EXPERIENCE');
-
-                    jobRow('AI Strategy & Solutions Engineer @ BetterWorld Technology (BWT)', 'Feb 2026 - Present');
-
-                    subLabel('BWT Brain - Unified Knowledge Corpus');
-                    bul('Architected a unified knowledge retrieval system consolidating IT Glue documentation across 188 client organizations into a single AI-searchable corpus, eliminating fragmented technician lookups');
-                    bul('Designed Azure-native pipeline: Python worker on Azure Container Apps syncing IT Glue documents into Azure AI Search with hybrid retrieval (BM25 keyword + vector embeddings + semantic re-ranking)');
-                    bul('Implemented KEDA-based autoscaling and concurrency tuning on Container Apps to handle bursty sync workloads cost-efficiently');
-                    bul('Companion components: CoS Agent for executive workflow assistance and Rewst integration for automation hand-off');
-
-                    subLabel('MCP Server Development');
-                    bul('Built ConnectWise MCP server enabling LLM-driven bulk ticket analysis, NOC alert board triage, workflow debugging, and ticket merge operations - used to produce the Clark Brands 90-day network review report and resolve a recurring EventID 528 workflow misfire');
-                    bul('Built IT Glue MCP server with curated tenant map for all 188 BWT client organizations; documented working endpoints, broken endpoints, and reliable tool-call patterns to maximize agent success rate');
-                    bul('Built Auvik MCP server powering client health reporting and cross-tenant device fleet enumeration');
-                    bul("Established pattern: MCP servers as connective tissue between Claude and BWT's PSA/RMM/documentation stack, turning multi-step manual workflows into single conversational queries");
-
-                    subLabel('AI Strategy & R&D');
-                    bul('Authored formal strategy brief for BWT leadership benchmarking BWT against top-tier MSPs; evaluated vendors including zofiQ (acquired by ConnectWise, Jan 2026), Cooper Copilot, Thread AI, and Rewst');
-                    bul('Drove vendor selection conversations and AI adoption roadmap recommendations for executive leadership');
-                    bul('Building autonomous IT ops platform combining n8n, Claude, React Flow, and MCP integrations; V1 targets L1 ticket triage automation for measurable ticket deflection');
-                    bul('Delivered 7-phase TaxValet onboarding automation plan projected to eliminate ~75% of manual onboarding time');
-
-                    y += 3;
-                    jobRow('Associate Data Engineer @ Nexturn India', 'Jun 2022 - Dec 2023');
-                    bul('Designed, developed, and maintained data pipelines for business applications using Matillion, Python, and SQL');
-                    bul('Managed PostgreSQL and relational databases ensuring accurate, consistent data management');
-                    bul('Created Tableau and Power BI dashboards providing insights into business processes and data patterns');
-                    bul('Led ETL processes transforming raw data into usable formats for analysis and reporting');
-                    bul('Implemented AWS cloud-based solutions for optimized data storage and processing');
-                    bul('Utilized Kafka and PySpark for large-scale data processing, improving efficiency significantly');
-
-                    // ── PROJECTS ──────────────────────────────
-                    section('PROJECTS');
-
-                    [
-                        { name: 'Generative AI Solutions & RAG Systems', bullets: [
-                            'Built custom Generative AI solutions using LangGraph, LangChain, and Crew AI frameworks',
-                            'Implemented RAG systems for enhanced knowledge retrieval and intelligent automation',
-                            'Developed multi-agent systems for complex business processes and decision-making',
-                            'Created custom LangGraph workflows for orchestrating AI applications'
-                        ]},
-                        { name: 'Azure Ticket Dispatcher - Automated Load Balancing', bullets: [
-                            'Designed Azure Function App for automated ticket assignment with intelligent load balancing',
-                            'Implemented efficient in-memory data processing minimizing API calls',
-                            'Developed smart assignment logic with real-time workload and priority metrics',
-                            'Created HTML dashboards for technician availability and assignment decision logs'
-                        ]},
-                        { name: 'ConnectWise SmartOps AI Integration', bullets: [
-                            'Built Python service integrating ConnectWise with OpenAI for intelligent ticket automation',
-                            'Developed RESTful APIs for automated ticket categorization using AI/ML models',
-                            'Designed real-time monitoring dashboards for API performance and automation metrics'
-                        ]},
-                        { name: 'Expedia Recon Database Maintenance', bullets: [
-                            'Retrieved and transformed Splunk Data Lake data using PySpark for production analysis',
-                            'Maintained PostgreSQL database for payment and FDS data reconciliation',
-                            'Developed Tableau dashboards to visualize financial discrepancies and track failures'
-                        ]},
-                        { name: 'Rxsense ETL Pipeline Documentation', bullets: [
-                            'Built and managed Matillion ETL pipelines integrating Python and SQL scripts',
-                            'Automated data workflows reducing manual intervention for large-scale transformations',
-                            'Documented data flows, dependencies, and transformation steps comprehensively'
-                        ]}
-                    ].forEach(function(p) {
-                        projName(p.name);
-                        p.bullets.forEach(bul);
-                        y += 1.5;
-                    });
-
-                    // ── TECHNICAL SKILLS ──────────────────────
-                    section('TECHNICAL SKILLS');
-
-                    var LW = 32;
-                    [
-                        ['Languages',       'Python, SQL, R, C'],
-                        ['AI / ML',         'TensorFlow, LangChain, LangGraph, Crew AI, RAG, Fine-tuning, MCP, Claude API, Agentic Systems'],
-                        ['Data Engineering','Apache Spark, Hadoop, Kafka, Matillion, ETL, Streamlit'],
-                        ['Databases',       'PostgreSQL, MySQL, Snowflake, SQL Server'],
-                        ['Cloud & Tools',   'AWS, Azure, Azure AI Search, Azure Container Apps, KEDA, n8n, Power BI, Tableau, Power Automate']
-                    ].forEach(function(row) {
-                        var valLines = doc.splitTextToSize(row[1], CW - LW - 2);
-                        guard(valLines.length * 4.5 + 2);
-                        doc.setFontSize(9.5).setFont('helvetica', 'bold').setTextColor(20, 20, 20);
-                        doc.text(row[0], ML, y);
-                        doc.setFont('helvetica', 'normal').setTextColor(50, 50, 50);
-                        doc.text(valLines[0], ML + LW, y);
-                        y += 4.5;
-                        for (var i = 1; i < valLines.length; i++) {
-                            doc.text(valLines[i], ML + LW, y);
-                            y += 4.5;
-                        }
-                    });
-
-                    // ── CERTIFICATIONS ────────────────────────
-                    section('CERTIFICATIONS');
-
-                    var certs = [
-                        'IBM - Data Analysis with Python',
-                        'IBM - Introduction to Data Engineering',
-                        'Snowflake - Hands-on All Badges',
-                        'AWS - Introduction to Generative AI',
-                        'Coursera - Databases and SQL for Data Science',
-                        'Databricks - Generative AI Fundamentals',
-                        'Anthropic - Claude Code in Action',
-                        'Anthropic - Claude Co-work'
-                    ];
-                    var colW = CW / 2 - 2;
-                    doc.setFontSize(9.5).setFont('helvetica', 'normal').setTextColor(50, 50, 50);
-                    for (var i = 0; i < certs.length; i += 2) {
-                        guard(5);
-                        doc.text('- ' + certs[i], ML, y);
-                        if (certs[i + 1]) doc.text('- ' + certs[i + 1], ML + colW + 6, y);
-                        y += 4.5;
-                    }
-
-                    doc.save('Jaswanth_Gaddam_Resume.pdf');
-
-                } catch(e) {
-                    console.error('PDF error:', e);
-                }
-
-                btn.innerHTML = '<i class="fas fa-download"></i> Download PDF';
-                btn.disabled = false;
-            }, 50);
-        }
-    </script>
 </body>
 
 </html>

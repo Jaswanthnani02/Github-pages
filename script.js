@@ -336,7 +336,189 @@ function initScrollProgress() {
 }
 
 // ============================================
-// 5. CURSOR GLOW (desktop only)
+// 5. PROJECT DETAIL MODAL
+// ============================================
+const PROJECT_DETAILS = {
+    dispatcher: {
+        overline: 'BetterWorld Technology · Production',
+        title: 'Ticket Auto-Dispatcher',
+        body: `
+            <h4>Problem</h4>
+            <p>Support tickets needed fair, fast assignment across technicians without manual triage on every board.</p>
+            <h4>What I built</h4>
+            <ul>
+                <li>Azure Functions service on the ConnectWise Manage API</li>
+                <li>Management selects ConnectWise boards by condition</li>
+                <li>Assignment uses round-robin and weighted averages on technician ticket counts</li>
+                <li>Tickets are sent to technicians through API calls</li>
+                <li>Companion metrics dashboard tracks processed tickets, time saved, fairness, and estimated cost savings</li>
+            </ul>
+            <h4>Outcome</h4>
+            <ul>
+                <li>100,000+ tickets auto-assigned in the last 6 months</li>
+                <li>Labor savings estimated from measured time saved at an assumed $35/hour technician rate</li>
+                <li>History persisted to Azure Blob Storage for ops and Power BI views</li>
+            </ul>
+        `,
+        tech: ['Azure Functions', 'ConnectWise Manage API', 'Python', 'Azure Blob Storage']
+    },
+    'ops-dashboard': {
+        overline: 'BetterWorld Technology · Production',
+        title: 'Ops Analytics Dashboard',
+        body: `
+            <h4>Problem</h4>
+            <p>Management needed one place to see ticket volume, open work, technician load, account health, and why tickets stall — across time ranges and boards.</p>
+            <h4>What I built</h4>
+            <ul>
+                <li>Ops dashboard on Cosmos DB (source of truth for MSP operational data)</li>
+                <li>Hosted on Azure Containers with auto-scaling; report snapshots cached in Azure Redis</li>
+                <li>ConnectWise API + Microsoft 365 integration</li>
+                <li>Time-bounded views (e.g. last 30 days or custom range) for tickets processed or open</li>
+                <li>Technician performance, account health scores, and MTTR by account</li>
+                <li>Priority-sorted bar and Sankey charts by agent volume, company, or board</li>
+                <li>Azure AI Foundry “AI analysis” reads ticket notes to explain why a ticket is unresolved</li>
+                <li>In-dashboard messaging using each user’s own credentials</li>
+            </ul>
+            <h4>Reporting tied to this stack</h4>
+            <ul>
+                <li>Weekly flash reports for a quick management overview</li>
+                <li>Monthly ops reports: tickets processed/closed, CSAT average, MTTR by SLA</li>
+                <li>Per-client home-health scores from ticket hygiene, customer feedback, time-to-response, and sentiment</li>
+            </ul>
+        `,
+        tech: ['Cosmos DB', 'Azure Containers', 'Azure Redis', 'Azure AI Foundry', 'ConnectWise API', 'Microsoft 365']
+    },
+    mcp: {
+        overline: 'BetterWorld Technology · Production',
+        title: 'ConnectWise MCP Platform',
+        body: `
+            <h4>Problem</h4>
+            <p>The team needed safe, role-aware tools so Claude and other LLMs could work against ConnectWise products without ad-hoc scripts.</p>
+            <h4>What I built</h4>
+            <ul>
+                <li>Custom APIs from ConnectWise documentation, exposed as MCP tools with clear tool descriptions</li>
+                <li>Deployed to Azure Containers with auto-scaling</li>
+                <li>Predefined authorization and role-based access control modeled after ConnectWise permissions</li>
+                <li>Coverage across SmileBack, ConnectWise Asio (RMM), and ConnectWise CPQ (CRM), plus Manage workflows</li>
+                <li>Paired with a Cosmos DB data layer (IT Glue, projects, invoices, tickets, technicians, RMM devices, disk utilization, SmileBack feedback, CPQ) so LLMs can query for insights</li>
+            </ul>
+            <h4>Outcome</h4>
+            <p>Entire team uses the MCP stack with controlled access for day-to-day operations and analytics.</p>
+        `,
+        tech: ['MCP', 'Azure Containers', 'ConnectWise', 'Cosmos DB', 'RBAC']
+    },
+    onboarding: {
+        overline: 'BetterWorld Technology · Production',
+        title: 'n8n New-Hire Onboarding',
+        body: `
+            <h4>Problem</h4>
+            <p>Manual onboarding took 2–5 business days: raising tickets, collecting feedback, briefing the hire, scheduling meetings, creating every credential, and adding groups.</p>
+            <h4>What I built</h4>
+            <ul>
+                <li>End-to-end n8n automation with data guidelines and approval gates</li>
+                <li>Assigns ConnectWise licenses</li>
+                <li>Provisions Microsoft Graph credentials and enterprise applications</li>
+                <li>Assigns managers and sets calendar meetings</li>
+                <li>Delivers credentials and sends the welcome email</li>
+            </ul>
+            <h4>Outcome</h4>
+            <p>When approvals are processed instantly, new-hire credentials are ready in 5–10 minutes instead of days.</p>
+        `,
+        tech: ['n8n', 'Microsoft Graph', 'ConnectWise', 'Approvals']
+    },
+    smartops: {
+        overline: 'BetterWorld Technology · Production',
+        title: 'ConnectWise SmartOps AI',
+        body: `
+            <h4>What I built</h4>
+            <ul>
+                <li>Python service integrating ConnectWise with AI-assisted ticket analysis</li>
+                <li>Automated categorization and prioritization for support workflows</li>
+                <li>Power Automate hooks for downstream automation</li>
+                <li>Monitoring for API performance and automation outcomes</li>
+            </ul>
+        `,
+        tech: ['Python', 'ConnectWise', 'OpenAI', 'Power Automate']
+    },
+    rag: {
+        overline: 'Selected delivery',
+        title: 'Generative AI & RAG Systems',
+        body: `
+            <h4>What I built</h4>
+            <ul>
+                <li>Custom Generative AI solutions with LangGraph, LangChain, and Crew AI</li>
+                <li>RAG pipelines for knowledge retrieval</li>
+                <li>Multi-agent orchestration for multi-step business workflows</li>
+            </ul>
+        `,
+        tech: ['LangGraph', 'LangChain', 'Crew AI', 'RAG', 'Python']
+    },
+    expedia: {
+        overline: 'Nexturn · Client engagement',
+        title: 'Expedia Recon Database',
+        body: `
+            <ul>
+                <li>Pulled Splunk Data Lake data into production and transformed it with PySpark</li>
+                <li>Maintained PostgreSQL for payment and FDS reconciliation</li>
+                <li>Tableau dashboards for discrepancies and failure patterns</li>
+            </ul>
+        `,
+        tech: ['PySpark', 'PostgreSQL', 'Tableau', 'Splunk']
+    },
+    rxsense: {
+        overline: 'Nexturn · Client engagement',
+        title: 'Rxsense ETL Pipelines',
+        body: `
+            <ul>
+                <li>Matillion ETL pipelines integrating Python and SQL</li>
+                <li>Automated large-scale transforms to reduce manual work</li>
+                <li>Documented data flows, dependencies, and transformation steps</li>
+            </ul>
+        `,
+        tech: ['Matillion', 'Python', 'SQL', 'ETL']
+    }
+};
+
+function initProjectModal() {
+    const modal = document.getElementById('projectModal');
+    if (!modal) return;
+
+    const overline = document.getElementById('projectModalOverline');
+    const title = document.getElementById('projectModalTitle');
+    const body = document.getElementById('projectModalBody');
+    const tech = document.getElementById('projectModalTech');
+
+    function openProject(id) {
+        const data = PROJECT_DETAILS[id];
+        if (!data) return;
+        overline.textContent = data.overline;
+        title.textContent = data.title;
+        body.innerHTML = data.body;
+        tech.innerHTML = data.tech.map(t => `<li>${t}</li>`).join('');
+        modal.hidden = false;
+        document.body.classList.add('modal-open');
+    }
+
+    function closeProject() {
+        modal.hidden = true;
+        document.body.classList.remove('modal-open');
+    }
+
+    document.querySelectorAll('.project-open').forEach(btn => {
+        btn.addEventListener('click', () => openProject(btn.dataset.project));
+    });
+
+    modal.querySelectorAll('[data-close-modal]').forEach(el => {
+        el.addEventListener('click', closeProject);
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && !modal.hidden) closeProject();
+    });
+}
+
+// ============================================
+// 6. CURSOR GLOW (desktop only)
 // ============================================
 function initCursorGlow() {
     const glow = document.getElementById('cursorGlow');
@@ -355,5 +537,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initAnimations();
     initNav();
     initScrollProgress();
+    initProjectModal();
     initCursorGlow();
 });

@@ -4,34 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaswanth Gaddam | AI Strategy & Solutions Engineer</title>
+    <title>Jaswanth Gaddam | Cloud and AI Solutions Engineer</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preload" href="profile.jpg" as="image">
-    <meta name="description" content="Jaswanth Gaddam - AI Strategy & Solutions Engineer at BetterWorld Technology. Building agentic AI systems, MCP servers, and intelligent automation pipelines.">
+    <meta name="description" content="Jaswanth Gaddam — Cloud and AI Solutions Engineer at BetterWorld Technology. Azure, MCP, automation, and MSP platform engineering.">
 </head>
 
 <body>
-    <!-- 3D Background -->
     <canvas id="bg-canvas"></canvas>
-
-    <!-- Cursor glow -->
-    <div class="cursor-glow" id="cursorGlow"></div>
-
-    <!-- Scroll Progress -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Navigation -->
     <header class="header" id="header">
         <nav class="nav">
-            <a href="#" class="nav-logo">JG<span class="logo-accent">.</span></a>
+            <a href="#" class="nav-logo">JG</a>
             <div class="nav-links" id="navLinks">
                 <a href="#about" class="nav-link">About</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Work</a>
+                <a href="#projects" class="nav-link">Builds</a>
                 <a href="#contact" class="nav-link">Contact</a>
+                <a href="https://www.linkedin.com/in/gaddamjaswanth/" class="nav-link nav-link-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
+            <a href="https://www.linkedin.com/in/gaddamjaswanth/" class="nav-linkedin linkedin-handshake" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
             <a href="resume.html" class="nav-cta">Resume</a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span><span></span>
@@ -42,89 +40,110 @@
     <!-- Hero -->
     <section class="hero" id="hero">
         <div class="hero-inner">
-            <p class="hero-greeting fade-up">Hi, my name is</p>
-            <h1 class="hero-name fade-up">Jaswanth Gaddam.</h1>
-            <h2 class="hero-tagline fade-up">I build agentic AI systems.</h2>
-            <p class="hero-desc fade-up">
-                I'm an AI Strategy & Solutions Engineer at <a href="#" class="inline-link">BetterWorld Technology</a>,
-                architecting intelligent automation systems, MCP server integrations, and AI-native pipelines
-                that turn complex multi-step workflows into single conversational queries.
-            </p>
-            <div class="hero-cta fade-up">
-                <a href="#projects" class="btn-primary">View My Work</a>
+            <div class="hero-copy">
+                <p class="hero-greeting fade-up">Chicago · Cloud &amp; AI</p>
+                <h1 class="hero-name fade-up">Jaswanth<br>Gaddam</h1>
+                <p class="hero-desc fade-up">
+                    I build automation that actually ships — ticket dispatch, MCP servers, ops dashboards,
+                    and onboarding flows on Azure for MSP teams at
+                    <span class="inline-link">BetterWorld Technology</span>.
+                    Master’s in Data Science from
+                    <a href="https://www.fau.edu/" class="inline-link" target="_blank" rel="noopener noreferrer">FAU</a>.
+                </p>
+                <p class="hero-line fade-up">
+                    <em>100k+</em> tickets auto-assigned · onboarding cut from days to minutes
+                </p>
+                <div class="hero-cta fade-up">
+                    <a href="#experience" class="btn-primary">See the work</a>
+                    <a href="https://www.linkedin.com/in/gaddamjaswanth/" class="btn-text linkedin-handshake" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i> Say hello on LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="hero-portrait fade-up">
+                <div class="image-wrapper">
+                    <img src="profile.jpg" alt="Jaswanth Gaddam" width="280" height="340" fetchpriority="high">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About -->
     <section class="section" id="about">
-        <h2 class="section-heading"><span class="section-number">01.</span> About Me</h2>
-        <div class="about-layout">
+        <h2 class="section-heading">About</h2>
+        <div class="about-layout about-layout--text">
             <div class="about-text">
                 <p>
-                    I'm an AI Strategy & Solutions Engineer at <span class="highlight">BetterWorld Technology</span>,
-                    building agentic systems that connect LLMs directly to enterprise tooling via MCP servers —
-                    turning multi-step manual workflows into single conversational queries across PSA, RMM,
-                    and documentation platforms.
+                    I'm a Cloud and AI Solutions Engineer. Day to day that means Azure Functions,
+                    containerized MCP servers, Cosmos DB, and automation across ConnectWise,
+                    Microsoft Graph, n8n, and Power Automate — systems people actually use.
                 </p>
                 <p>
-                    I hold an M.S. in Data Science & Engineering from Florida Atlantic University. My background
-                    spans data pipelines, Azure-native AI infrastructure, autonomous IT ops, and competitive AI
-                    strategy. I've built production MCP servers for ConnectWise, IT Glue, and Auvik used daily
-                    across 188 client organizations.
+                    Before this I was an Associate Data Engineer: pipelines, PySpark, dashboards.
+                    That background still shows up in how I shape data for QBRs and ops reporting.
                 </p>
-                <p>Here are some technologies I've been working with recently:</p>
+                <p>What I work with most right now:</p>
                 <ul class="tech-list">
                     <li>Python</li>
-                    <li>MCP / Claude API</li>
-                    <li>Azure AI Search</li>
-                    <li>LangChain / LangGraph</li>
-                    <li>Azure Container Apps</li>
-                    <li>n8n / React Flow</li>
-                    <li>KEDA Autoscaling</li>
-                    <li>Crew AI / RAG</li>
+                    <li>Azure Functions</li>
+                    <li>Cosmos DB</li>
+                    <li>MCP Servers</li>
+                    <li>Azure Containers</li>
+                    <li>n8n</li>
+                    <li>Power Automate</li>
+                    <li>ConnectWise APIs</li>
                 </ul>
             </div>
-            <div class="about-image">
-                <div class="image-wrapper">
-                    <img src="profile.jpg" alt="Jaswanth Gaddam" loading="lazy" width="300" height="300">
-                    <div class="image-border"></div>
-                </div>
+        </div>
+
+        <div class="education-card">
+            <div class="education-photo">
+                <img src="graduation.jpg" alt="Jaswanth Gaddam at Florida Atlantic University graduation" width="120" height="160" loading="lazy">
+            </div>
+            <div class="education-body">
+                <p class="education-label">Education</p>
+                <h3 class="education-school">Florida Atlantic University</h3>
+                <p class="education-degree">Master's in Data Science and Engineering — Data Science &amp; Analytics</p>
+                <p class="education-date">Jan 2024 — May 2025 · Boca Raton, FL · Full-time graduate study</p>
             </div>
         </div>
     </section>
 
     <!-- Experience / Skills -->
     <section class="section" id="experience">
-        <h2 class="section-heading"><span class="section-number">02.</span> Where I've Worked</h2>
+        <h2 class="section-heading">Work</h2>
         <div class="experience-grid">
             <div class="exp-card">
                 <div class="exp-header">
-                    <h3>AI Strategy & Solutions Engineer</h3>
-                    <p class="exp-company">@ <a href="https://betterworldtech.com" target="_blank" rel="noopener" class="inline-link">BetterWorld Technology</a></p>
+                    <h3>Cloud and AI Solutions Engineer</h3>
+                    <p class="exp-company">@ <span class="inline-link">BetterWorld Technology</span></p>
                 </div>
-                <p class="exp-date">Feb 2026 — Present</p>
+                <p class="exp-date">Oct 2025 — Present · Chicago, IL</p>
                 <ul class="exp-list">
-                    <li>Architecting BWT Brain — a unified AI-searchable knowledge corpus across 188 client organizations using Azure AI Search with hybrid retrieval (BM25 + vectors + semantic re-ranking)</li>
-                    <li>Built production MCP servers for ConnectWise, IT Glue, and Auvik enabling LLM-driven ticket analysis, NOC triage, and cross-tenant fleet enumeration</li>
-                    <li>Authored competitive AI strategy brief for leadership, evaluating vendors including zofiQ, Cooper Copilot, and Thread AI</li>
-                    <li>Building autonomous IT ops platform with n8n, Claude, React Flow, and MCP targeting L1 ticket triage deflection</li>
+                    <li>Built an Azure Functions ticket dispatcher on the ConnectWise Manage API (board selection, round-robin and weighted-average assignment by technician ticket load) that auto-assigned <strong>100,000+</strong> tickets in the last 6 months; estimated labor cost savings from measured time saved at an assumed <strong>$35/hour</strong> technician rate</li>
+                    <li>Designed ConnectWise MCP servers from API documentation with tool descriptions, authentication, and role-based access; deployed on Azure Containers with auto-scaling for team use across SmileBack, ConnectWise Asio (RMM), and ConnectWise CPQ</li>
+                    <li>Architected a Cosmos DB + MCP data layer ingesting IT Glue, ConnectWise projects, invoices, tickets, technician data, RMM devices, disk utilization, SmileBack feedback, and CPQ data</li>
+                    <li>Built an ops dashboard on Cosmos DB, hosted on Azure Containers with auto-scaling and Azure Redis for snapshot caching, with ConnectWise API and Microsoft 365 integration: time-bounded views of tickets processed or open (e.g. last 30 days or custom range), technician performance, account health scores, and MTTR by account; priority-sorted bar and Sankey charts for ticket volume by agent, company, or board; Azure AI Foundry–powered AI analysis that reads ticket notes to explain why tickets remain unresolved; in-dashboard messaging using the user’s own credentials</li>
+                    <li>Built weekly flash reports, monthly ops reports (tickets processed/closed, CSAT average, MTTR by SLA), and per-client home-health scores from service-delivery ticket hygiene, customer feedback, time-to-response, and sentiment</li>
+                    <li>Replaced a 2–5 business-day manual onboarding process (tickets, feedback, context handoff, meetings, credentials, group membership) with an n8n end-to-end flow that delivers new-hire credentials in <strong>5–10 minutes</strong> when approvals are processed instantly — covering ConnectWise licenses, Microsoft Graph credentials, enterprise apps, managers, calendar meetings, credential delivery, and welcome email</li>
+                    <li>Built Power Automate flows for internal feedback forms and scheduled task workflows</li>
+                    <li>Built autonomous Cowork agents for ticket and email scheduling; used Claude in the engineering workflow for implementation, testing, and deployment of production services</li>
                 </ul>
                 <div class="exp-tags">
-                    <span>MCP</span><span>Claude API</span><span>Azure AI Search</span><span>KEDA</span><span>Python</span><span>n8n</span>
+                    <span>Azure Functions</span><span>Cosmos DB</span><span>MCP</span><span>Azure Containers</span><span>Azure Redis</span><span>Azure AI Foundry</span><span>n8n</span><span>Power Automate</span><span>ConnectWise</span>
                 </div>
             </div>
             <div class="exp-card">
                 <div class="exp-header">
                     <h3>Associate Data Engineer</h3>
-                    <p class="exp-company">@ <a href="#" class="inline-link">Nexturn India</a></p>
+                    <p class="exp-company">@ <span class="inline-link">Nexturn India</span></p>
                 </div>
                 <p class="exp-date">Jun 2022 — Dec 2023</p>
                 <ul class="exp-list">
-                    <li>Retrieved data from Splunk Data Lake and transformed using PySpark for analysis</li>
-                    <li>Developed and managed ETL pipelines using Matillion, Python, and SQL</li>
-                    <li>Maintained PostgreSQL databases for payment and FDS data reconciliation</li>
-                    <li>Created dashboards with Tableau and Power BI for data-driven insights</li>
+                    <li>Built and operated ETL pipelines with Matillion, Python, and SQL for business applications</li>
+                    <li>Transformed Splunk Data Lake extracts with PySpark for payment and FDS reconciliation workflows</li>
+                    <li>Maintained PostgreSQL databases for financial reconciliation and data quality monitoring</li>
+                    <li>Delivered Tableau and Power BI dashboards for operational and financial reporting</li>
                 </ul>
                 <div class="exp-tags">
                     <span>PySpark</span><span>PostgreSQL</span><span>Matillion</span><span>Tableau</span><span>AWS</span>
@@ -132,30 +151,30 @@
             </div>
         </div>
 
-        <h2 class="section-heading" style="margin-top: 100px;"><span class="section-number">02b.</span> Skills & Technologies</h2>
+        <h2 class="section-heading skills-heading">Tools I reach for</h2>
         <div class="skills-grid">
             <div class="skill-group">
-                <h3><i class="fas fa-code"></i> Programming</h3>
+                <h3><i class="fas fa-code"></i> Languages</h3>
                 <div class="skill-tags">
-                    <span>Python</span><span>SQL</span><span>R</span><span>C</span>
+                    <span>Python</span><span>SQL</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3><i class="fas fa-cloud"></i> Cloud &amp; Platforms</h3>
+                <div class="skill-tags">
+                        <span>Azure Functions</span><span>Azure Containers</span><span>Cosmos DB</span><span>Azure Redis</span><span>Azure AI Foundry</span><span>Microsoft 365</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3><i class="fas fa-robot"></i> AI &amp; Automation</h3>
+                <div class="skill-tags">
+                    <span>MCP</span><span>n8n</span><span>Power Automate</span><span>LangChain</span><span>LangGraph</span><span>RAG</span>
                 </div>
             </div>
             <div class="skill-group">
                 <h3><i class="fas fa-database"></i> Data Engineering</h3>
                 <div class="skill-tags">
-                    <span>Apache Spark</span><span>Hadoop</span><span>ETL Pipelines</span><span>Data Warehousing</span>
-                </div>
-            </div>
-            <div class="skill-group">
-                <h3><i class="fas fa-brain"></i> AI / Machine Learning</h3>
-                <div class="skill-tags">
-                    <span>MCP</span><span>Claude API</span><span>LangChain</span><span>LangGraph</span><span>Crew AI</span><span>RAG</span><span>TensorFlow</span><span>Agentic Systems</span>
-                </div>
-            </div>
-            <div class="skill-group">
-                <h3><i class="fas fa-cloud"></i> Cloud & Tools</h3>
-                <div class="skill-tags">
-                    <span>Azure</span><span>Azure AI Search</span><span>Azure Container Apps</span><span>KEDA</span><span>AWS</span><span>n8n</span><span>Snowflake</span><span>Power Automate</span>
+                    <span>Apache Spark</span><span>PySpark</span><span>ETL</span><span>PostgreSQL</span><span>Kafka</span>
                 </div>
             </div>
         </div>
@@ -163,149 +182,166 @@
 
     <!-- Projects -->
     <section class="section" id="projects">
-        <h2 class="section-heading"><span class="section-number">03.</span> Things I've Built</h2>
+        <h2 class="section-heading">BetterWorld Technology</h2>
+        <p class="section-intro">Click a project for full context — problem, build, and outcome.</p>
 
         <div class="project-list">
-            <article class="project-featured">
+            <button type="button" class="project-featured project-open" data-project="dispatcher" aria-haspopup="dialog">
                 <div class="project-content">
-                    <p class="project-overline">Flagship Initiative @ BWT</p>
-                    <h3 class="project-name">BWT Brain — Unified Knowledge Corpus</h3>
+                    <p class="project-overline">BetterWorld Technology · Production</p>
+                    <h3 class="project-name">Ticket Auto-Dispatcher</h3>
                     <div class="project-description">
-                        <p>Architected a unified AI-searchable knowledge retrieval system consolidating IT Glue documentation across 188 client organizations, eliminating fragmented technician lookups. Built on Azure Container Apps with KEDA autoscaling, Azure AI Search hybrid retrieval (BM25 + vector embeddings + semantic re-ranking), and Rewst automation hand-off.</p>
+                        <p>Azure Functions + ConnectWise Manage API. Boards, round-robin, weighted averages —
+                        100k+ tickets auto-assigned in six months.</p>
                     </div>
                     <ul class="project-tech-list">
-                        <li>Azure AI Search</li><li>Azure Container Apps</li><li>KEDA</li><li>Python</li><li>Hybrid Retrieval</li>
+                        <li>Azure Functions</li><li>ConnectWise Manage API</li><li>Python</li>
                     </ul>
+                    <span class="project-more">Read full context →</span>
                 </div>
-            </article>
+            </button>
 
-            <article class="project-featured">
+            <button type="button" class="project-featured project-open" data-project="ops-dashboard" aria-haspopup="dialog">
                 <div class="project-content">
-                    <p class="project-overline">MCP Server Development @ BWT</p>
-                    <h3 class="project-name">ConnectWise, IT Glue & Auvik MCP Servers</h3>
+                    <p class="project-overline">BetterWorld Technology · Production</p>
+                    <h3 class="project-name">Ops Analytics Dashboard</h3>
                     <div class="project-description">
-                        <p>Built production MCP servers for BWT's core PSA/RMM/documentation stack — enabling LLM-driven bulk ticket analysis, NOC alert board triage, and cross-tenant device fleet enumeration across 188 client organizations. Used to produce the Clark Brands 90-day network review report and resolve a recurring EventID 528 workflow misfire.</p>
+                        <p>Cosmos DB ops console on Azure Containers — tickets, health scores, MTTR, Sankey
+                        charts, and Azure AI Foundry note analysis.</p>
                     </div>
                     <ul class="project-tech-list">
-                        <li>MCP</li><li>Claude API</li><li>ConnectWise</li><li>IT Glue</li><li>Auvik</li><li>Python</li>
+                        <li>Cosmos DB</li><li>Azure Redis</li><li>Azure AI Foundry</li><li>Microsoft 365</li>
                     </ul>
+                    <span class="project-more">Read full context →</span>
                 </div>
-            </article>
+            </button>
 
-            <article class="project-featured">
+            <button type="button" class="project-featured project-open" data-project="mcp" aria-haspopup="dialog">
                 <div class="project-content">
-                    <p class="project-overline">Featured Project</p>
-                    <h3 class="project-name">Generative AI Solutions & RAG Systems</h3>
+                    <p class="project-overline">BetterWorld Technology · Production</p>
+                    <h3 class="project-name">ConnectWise MCP Platform</h3>
                     <div class="project-description">
-                        <p>Built custom Generative AI solutions for businesses using LangGraph, LangChain, and Crew AI.
-                        Implemented Retrieval-Augmented Generation systems for enhanced knowledge retrieval
-                        and intelligent automation workflows.</p>
+                        <p>Custom MCP servers from ConnectWise API docs — RBAC, container auto-scaling,
+                        team-wide tools for Manage, Asio, CPQ, and SmileBack.</p>
                     </div>
                     <ul class="project-tech-list">
-                        <li>LangGraph</li><li>LangChain</li><li>Crew AI</li><li>RAG</li><li>Python</li>
+                        <li>MCP</li><li>Azure Containers</li><li>ConnectWise</li><li>RBAC</li>
                     </ul>
+                    <span class="project-more">Read full context →</span>
                 </div>
-            </article>
+            </button>
 
-            <article class="project-featured">
+            <button type="button" class="project-featured project-open" data-project="onboarding" aria-haspopup="dialog">
                 <div class="project-content">
-                    <p class="project-overline">Featured Project</p>
-                    <h3 class="project-name">Azure Automated Ticket Dispatcher</h3>
+                    <p class="project-overline">BetterWorld Technology · Production</p>
+                    <h3 class="project-name">n8n New-Hire Onboarding</h3>
                     <div class="project-description">
-                        <p>Engineered a serverless ticket dispatching system using Azure Functions with intelligent
-                        load balancing, dedicated team routing, and real-time HTML reporting.</p>
+                        <p>End-to-end onboarding automation — licenses, Graph credentials, apps, calendar,
+                        welcome email. Days of work down to minutes.</p>
                     </div>
                     <ul class="project-tech-list">
-                        <li>Azure Functions</li><li>Python</li><li>ConnectWise API</li>
+                        <li>n8n</li><li>Microsoft Graph</li><li>ConnectWise</li>
                     </ul>
+                    <span class="project-more">Read full context →</span>
                 </div>
-            </article>
+            </button>
 
-            <article class="project-featured">
+            <button type="button" class="project-featured project-open" data-project="smartops" aria-haspopup="dialog">
                 <div class="project-content">
-                    <p class="project-overline">Featured Project</p>
-                    <h3 class="project-name">ConnectWise SmartOps AI Integration</h3>
+                    <p class="project-overline">BetterWorld Technology · Production</p>
+                    <h3 class="project-name">ConnectWise SmartOps AI</h3>
                     <div class="project-description">
-                        <p>Developed a heuristic-based AI engine to analyze ticket sentiment and automate
-                        prioritization. Integrated with Power Automate for streamlined workflows.</p>
+                        <p>Python service for AI-assisted ticket categorization and prioritization, wired
+                        into Power Automate.</p>
                     </div>
                     <ul class="project-tech-list">
-                        <li>AI/ML</li><li>Power Automate</li><li>SmartOps</li><li>Python</li>
+                        <li>Python</li><li>ConnectWise</li><li>OpenAI</li><li>Power Automate</li>
                     </ul>
+                    <span class="project-more">Read full context →</span>
                 </div>
-            </article>
+            </button>
+
+            <button type="button" class="project-featured project-open" data-project="rag" aria-haspopup="dialog">
+                <div class="project-content">
+                    <p class="project-overline">AI Delivery</p>
+                    <h3 class="project-name">Generative AI &amp; RAG Systems</h3>
+                    <div class="project-description">
+                        <p>LangGraph / LangChain / Crew AI solutions with RAG and multi-agent orchestration.</p>
+                    </div>
+                    <ul class="project-tech-list">
+                        <li>LangGraph</li><li>LangChain</li><li>Crew AI</li><li>RAG</li>
+                    </ul>
+                    <span class="project-more">Read full context →</span>
+                </div>
+            </button>
         </div>
 
-        <h3 class="other-projects-title">Other Noteworthy Projects</h3>
+        <h3 class="other-projects-title">Nexturn — Client Engagements</h3>
         <div class="projects-grid">
-            <div class="project-card">
+            <button type="button" class="project-card project-open" data-project="expedia" aria-haspopup="dialog">
                 <div class="project-card-top">
                     <i class="fas fa-folder-open project-folder"></i>
+                    <span class="project-more">Details →</span>
                 </div>
                 <h3>Expedia Recon Database</h3>
-                <p>Retrieved data from Splunk Data Lake to production database and transformed data using PySpark for payment reconciliation.</p>
+                <p>Splunk → PySpark → PostgreSQL payment/FDS reconciliation with Tableau reporting.</p>
                 <div class="project-card-tags">
                     <span>PySpark</span><span>PostgreSQL</span><span>Tableau</span>
                 </div>
-            </div>
-            <div class="project-card">
+            </button>
+            <button type="button" class="project-card project-open" data-project="rxsense" aria-haspopup="dialog">
                 <div class="project-card-top">
                     <i class="fas fa-folder-open project-folder"></i>
+                    <span class="project-more">Details →</span>
                 </div>
-                <h3>Rxsense ETL Pipeline</h3>
-                <p>Developed and managed data pipelines using Matillion ETL tool, integrating Python and SQL scripts with automated workflows.</p>
+                <h3>Rxsense ETL Pipelines</h3>
+                <p>Matillion ETL with Python/SQL, documented flows and automated transforms.</p>
                 <div class="project-card-tags">
                     <span>Matillion</span><span>Python</span><span>SQL</span>
                 </div>
-            </div>
+            </button>
         </div>
 
-        <!-- Badges -->
         <div class="badges-section">
-            <h3 class="other-projects-title">Certifications & Badges</h3>
-            <div class="badges-container">
-                <img src="badges.webp" alt="Technical certifications and badges" loading="lazy" width="800" height="400">
-            </div>
-            <div class="projects-grid" style="margin-top: 24px;">
-                <div class="project-card">
-                    <div class="project-card-top">
-                        <i class="fas fa-certificate project-folder"></i>
-                    </div>
-                    <h3>Anthropic — Claude Code in Action</h3>
-                    <p>Certified in building and operating production AI workflows using Claude Code and the Anthropic ecosystem.</p>
-                    <div class="project-card-tags">
-                        <span>Anthropic</span><span>Claude Code</span><span>AI Engineering</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-card-top">
-                        <i class="fas fa-certificate project-folder"></i>
-                    </div>
-                    <h3>Anthropic — Claude Co-work</h3>
-                    <p>Certified in collaborative AI-assisted development workflows using Claude as an intelligent coding and reasoning partner.</p>
-                    <div class="project-card-tags">
-                        <span>Anthropic</span><span>Claude</span><span>AI Collaboration</span>
-                    </div>
-                </div>
-            </div>
+            <h3 class="other-projects-title">Certifications</h3>
+            <ul class="cert-list">
+                <li>Snowflake — Hands-on All Badges</li>
+                <li>Databricks — Generative AI Fundamentals</li>
+                <li>IBM — Data Analysis with Python</li>
+                <li>IBM — Introduction to Data Engineering</li>
+                <li>AWS — Introduction to Generative AI</li>
+                <li>Coursera — Databases and SQL for Data Science</li>
+            </ul>
         </div>
     </section>
 
+    <!-- Project detail modal -->
+    <div class="project-modal" id="projectModal" hidden>
+        <div class="project-modal-backdrop" data-close-modal></div>
+        <div class="project-modal-panel" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+            <button type="button" class="project-modal-close" data-close-modal aria-label="Close">&times;</button>
+            <p class="project-modal-overline" id="projectModalOverline"></p>
+            <h3 class="project-modal-title" id="projectModalTitle"></h3>
+            <div class="project-modal-body" id="projectModalBody"></div>
+            <ul class="project-modal-tech" id="projectModalTech"></ul>
+        </div>
+    </div>
+
     <!-- Contact -->
     <section class="section section-center" id="contact">
-        <p class="section-number">04. What's Next?</p>
-        <h2 class="contact-title">Get In Touch</h2>
+        <p class="contact-kicker">Next</p>
+        <h2 class="contact-title">Let's talk</h2>
         <p class="contact-desc">
-            I'm currently building AI systems at BetterWorld Technology. Open to select
-            AI collaborations, research partnerships, and high-impact opportunities.
+        Based in Chicago. On F-1 OPT. Open to remote, hybrid, on-site, or relocating.
+            Prefer email or LinkedIn — whichever is easier.
         </p>
         <div class="contact-links">
-            <a href="mailto:jaswanthnani02@gmail.com" class="btn-primary">Say Hello</a>
+            <a href="mailto:Jaswanthnani02@gmail.com" class="btn-primary">Email Me</a>
+            <a href="https://www.linkedin.com/in/gaddamjaswanth/" class="btn-primary btn-outline" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
         <div class="contact-details">
-            <a href="mailto:jaswanthnani02@gmail.com"><i class="fas fa-envelope"></i> jaswanthnani02@gmail.com</a>
+            <a href="mailto:Jaswanthnani02@gmail.com"><i class="fas fa-envelope"></i> Jaswanthnani02@gmail.com</a>
             <a href="tel:+15616174480"><i class="fas fa-phone"></i> +1 (561) 617-4480</a>
-            <a href="https://github.com/Jaswanthnani02" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> github.com/Jaswanthnani02</a>
             <span><i class="fas fa-map-marker-alt"></i> Chicago, IL</span>
         </div>
     </section>
@@ -313,19 +349,20 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-social">
-            <a href="https://github.com/Jaswanthnani02" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/gaddamjaswanth/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/in/gaddamjaswanth/" target="_blank" rel="noopener noreferrer" class="linkedin-highlight linkedin-handshake" aria-label="LinkedIn — Connect with Jaswanth"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <p>Designed & Built by Jaswanth Gaddam</p>
+        <p>Designed &amp; Built by Jaswanth Gaddam</p>
     </footer>
 
     <!-- Side Elements -->
     <div class="side-email">
-        <a href="mailto:jaswanthnani02@gmail.com">jaswanthnani02@gmail.com</a>
+        <a href="mailto:Jaswanthnani02@gmail.com">Jaswanthnani02@gmail.com</a>
     </div>
     <div class="side-social">
-        <a href="https://github.com/Jaswanthnani02" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/gaddamjaswanth/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.linkedin.com/in/gaddamjaswanth/" target="_blank" rel="noopener noreferrer" class="linkedin-highlight linkedin-handshake" aria-label="Connect on LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+            <span class="linkedin-label">Connect</span>
+        </a>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
