@@ -836,11 +836,26 @@ a:hover { color: var(--accent); }
     margin-bottom: 4px !important;
 }
 
+.education-school-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.education-logo {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+}
+
 .education-school {
     font-size: var(--fs-lg);
     font-weight: 600;
     color: var(--slate-lighter);
-    margin-bottom: 4px;
+    margin-bottom: 0;
 }
 
 .education-degree {
@@ -1469,6 +1484,10 @@ body.modal-open { overflow: hidden; }
         text-align: center;
         max-width: 100%;
         padding: 20px;
+    }
+
+    .education-school-row {
+        justify-content: center;
     }
 
     .skills-grid { grid-template-columns: 1fr; }
