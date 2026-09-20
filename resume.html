@@ -198,12 +198,6 @@
 
         .skills-value { color: var(--body); }
 
-        .certs {
-            font-size: 13px;
-            color: var(--body);
-            line-height: 1.65;
-        }
-
         @media (max-width: 700px) {
             .resume { margin: 8px 12px 32px; padding: 28px 20px; }
             .skills-row { grid-template-columns: 1fr; }
@@ -230,7 +224,8 @@
 <body>
     <div class="topbar">
         <a href="index.html">Portfolio</a>
-        <button type="button" onclick="window.print()">Print / PDF</button>
+        <a href="Jaswanth-Gaddam-Resume.pdf" download>Download PDF</a>
+        <button type="button" onclick="window.print()">Print</button>
     </div>
 
     <main class="resume">
@@ -238,13 +233,15 @@
             <h1 class="name">Jaswanth Gaddam</h1>
             <p class="role">Cloud and AI Solutions Engineer</p>
             <p class="summary">
-                Builds Azure automation, MCP integrations, and AI-assisted workflows for MSP platforms.
-                Based in Chicago, IL. Authorized to work in the U.S. (F-1 OPT). Open to remote, hybrid, on-site, and relocation.
+                Builds Azure automation, MCP tool servers, and AI-assisted workflows for managed service provider (MSP) platforms.
+                Chicago, IL. F-1 OPT (STEM-eligible for the 24-month extension). Targeting AI/platform engineering roles.
+                Open to remote, hybrid, on-site, and relocation.
             </p>
             <p class="contact">
                 <span>Jaswanthnani02@gmail.com</span><span class="sep">|</span>
                 <span>+1 (561) 617-4480</span><span class="sep">|</span>
                 <span>linkedin.com/in/gaddamjaswanth</span><span class="sep">|</span>
+                <span>jaswanthnani02.github.io</span><span class="sep">|</span>
                 <span>Chicago, IL</span>
             </p>
         </header>
@@ -258,13 +255,12 @@
                     <div class="job-date">Oct 2025 – Present</div>
                 </div>
                 <ul>
-                    <li>Built an Azure Functions ticket dispatcher on the ConnectWise Manage API (board selection, round-robin, weighted-average assignment); auto-assigned 100,000+ tickets in six months</li>
-                    <li>Designed ConnectWise MCP servers with tool descriptions, authentication, and RBAC; deployed on Azure Containers with auto-scaling for SmileBack, ConnectWise Asio (RMM), and ConnectWise CPQ</li>
-                    <li>Architected a Cosmos DB + MCP data layer ingesting IT Glue, ConnectWise projects, invoices, tickets, technicians, RMM devices, disk utilization, SmileBack feedback, and CPQ data</li>
-                    <li>Shipped an ops dashboard on Azure Containers with Redis caching, ConnectWise API, and Microsoft 365: ticket views, technician performance, account health scores, MTTR, and Sankey/bar charts; Azure AI Foundry analyzes ticket notes for unresolved work</li>
-                    <li>Delivered weekly flash reports, monthly ops reports (tickets processed/closed, CSAT, MTTR by SLA), and per-client home-health scores</li>
-                    <li>Automated new-hire onboarding in n8n from 2–5 business days to 5–10 minutes (with instant approvals), covering licenses, Microsoft Graph credentials, enterprise apps, managers, calendar, and welcome email</li>
-                    <li>Built Power Automate feedback and scheduling flows; used Cowork for autonomous ticket/email scheduling and Claude in the engineering workflow for implementation, testing, and deployment</li>
+                    <li>Auto-assigned 100,000+ tickets in six months with an Azure Functions dispatcher on the PSA/ticketing REST API (ConnectWise Manage)—board selection, round-robin, and weighted-load assignment</li>
+                    <li>Built MCP tool servers with auth and RBAC for ticketing, RMM, quoting, and CSAT products (ConnectWise Manage, Asio, CPQ, SmileBack); deployed on auto-scaling Azure Containers</li>
+                    <li>Designed a Cosmos DB + MCP data layer for docs, projects, invoices, tickets, technicians, devices, CSAT, and quotes</li>
+                    <li>Shipped an ops dashboard (Azure Containers + Redis) with ticket views, health scores, MTTR, Sankey/bar charts, and Azure AI Foundry note analysis—plus weekly/monthly ops reports</li>
+                    <li>Cut new-hire onboarding from 2–5 business days to 5–10 minutes with n8n (licenses, Graph credentials, apps, managers, calendar, welcome email)</li>
+                    <li>Built Power Automate feedback/scheduling flows; used Claude in the engineering workflow for implementation, testing, and deployment</li>
                 </ul>
             </div>
 
@@ -275,10 +271,9 @@
                 </div>
                 <ul>
                     <li>Built and operated ETL pipelines with Matillion, Python, and SQL</li>
-                    <li>Transformed Splunk Data Lake extracts with PySpark for payment and FDS reconciliation</li>
+                    <li>Transformed Splunk Data Lake extracts with PySpark for payment reconciliation</li>
                     <li>Maintained PostgreSQL databases for financial reconciliation and data quality</li>
                     <li>Delivered Tableau and Power BI dashboards for operational and financial reporting</li>
-                    <li>Implemented AWS-based storage and processing for pipeline workloads</li>
                 </ul>
             </div>
         </section>
@@ -297,33 +292,22 @@
 
         <section class="section">
             <h2 class="section-title">Selected Work</h2>
-
             <div class="project">
-                <div class="project-name">Dispatch Optimization Dashboard <span class="meta">— BetterWorld Technology</span></div>
+                <div class="project-name">Ticket dispatcher + MCP RBAC demos <span class="meta">— public</span></div>
                 <ul>
-                    <li>Azure Functions metrics view for tickets processed, time saved, assignment fairness, and estimated cost savings; history stored in Azure Blob Storage</li>
+                    <li>github.com/Jaswanthnani02/ticket-dispatcher-demo · github.com/Jaswanthnani02/mcp-rbac-demo</li>
                 </ul>
             </div>
-
             <div class="project">
-                <div class="project-name">ConnectWise SmartOps AI <span class="meta">— BetterWorld Technology</span></div>
+                <div class="project-name">Ops analytics dashboard <span class="meta">— BetterWorld Technology</span></div>
                 <ul>
-                    <li>Python service for AI-assisted ticket categorization and prioritization with Power Automate workflow hooks</li>
+                    <li>Cosmos DB ops console with Redis caching, Sankey/bar charts, and Azure AI Foundry note analysis</li>
                 </ul>
             </div>
-
             <div class="project">
-                <div class="project-name">Generative AI &amp; RAG Systems</div>
+                <div class="project-name">Payment recon &amp; ETL <span class="meta">— Nexturn</span></div>
                 <ul>
-                    <li>LangGraph, LangChain, and Crew AI solutions including RAG pipelines and multi-agent orchestration</li>
-                </ul>
-            </div>
-
-            <div class="project">
-                <div class="project-name">Expedia Recon &amp; Rxsense ETL <span class="meta">— Nexturn</span></div>
-                <ul>
-                    <li>Expedia: Splunk to PostgreSQL reconciliation with PySpark and Tableau reporting</li>
-                    <li>Rxsense: Matillion ETL with Python/SQL and documented data flows</li>
+                    <li>Splunk → PySpark → PostgreSQL reconciliation; Matillion ETL with documented data flows</li>
                 </ul>
             </div>
         </section>
@@ -336,28 +320,16 @@
             </div>
             <div class="skills-row">
                 <div class="skills-label">Cloud &amp; Platforms</div>
-                <div class="skills-value">Azure Functions, Azure Containers, Cosmos DB, Azure Redis, Azure AI Foundry, Microsoft 365, ConnectWise, AWS</div>
+                <div class="skills-value">Azure Functions, Azure Containers, Cosmos DB, Azure Redis, Azure AI Foundry, Microsoft 365, AWS</div>
             </div>
             <div class="skills-row">
                 <div class="skills-label">AI &amp; Automation</div>
-                <div class="skills-value">MCP, n8n, Power Automate, LangChain, LangGraph, RAG</div>
+                <div class="skills-value">MCP, n8n, Power Automate, LangChain, RAG</div>
             </div>
             <div class="skills-row">
                 <div class="skills-label">Data Engineering</div>
-                <div class="skills-value">Apache Spark, PySpark, Kafka, Matillion, ETL, PostgreSQL, Power BI, Tableau</div>
+                <div class="skills-value">Apache Spark, PySpark, Matillion, ETL, PostgreSQL, Power BI, Tableau</div>
             </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Certifications</h2>
-            <p class="certs">
-                Snowflake — Hands-on All Badges ·
-                Databricks — Generative AI Fundamentals ·
-                IBM — Data Analysis with Python ·
-                IBM — Introduction to Data Engineering ·
-                AWS — Introduction to Generative AI ·
-                Coursera — Databases and SQL for Data Science
-            </p>
         </section>
     </main>
 </body>

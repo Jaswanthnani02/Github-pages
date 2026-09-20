@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Ops platform architecture (redacted)</title>
+  <desc id="desc">Data sources flow into Cosmos DB and MCP tools, then to the ops dashboard with Redis cache and AI note analysis.</desc>
+  <defs>
+    <style>
+      .bg { fill: #0a1628; }
+      .card { fill: #132337; stroke: #2dd4bf55; stroke-width: 1.5; }
+      .title { fill: #f1f5f9; font: 700 18px Inter, Helvetica, Arial, sans-serif; }
+      .label { fill: #e8eef6; font: 600 13px Inter, Helvetica, Arial, sans-serif; }
+      .sub { fill: #a8b8cc; font: 12px Inter, Helvetica, Arial, sans-serif; }
+      .arrow { stroke: #2dd4bf; stroke-width: 2; fill: none; marker-end: url(#m); }
+      .chip { fill: #0e1726; stroke: #7b8fa655; }
+    </style>
+    <marker id="m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2dd4bf"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1100" height="620" rx="12"/>
+  <text class="title" x="40" y="42">MSP ops platform  architecture (redacted)</text>
+  <text class="sub" x="40" y="64">Production pattern: ingest ’ Cosmos DB + MCP tools ’ dashboard / AI analysis</text>
+
+  <!-- Sources -->
+  <rect class="card" x="40" y="100" width="220" height="200" rx="8"/>
+  <text class="label" x="56" y="128">Sources</text>
+  <text class="sub" x="56" y="154">PSA / ticketing API</text>
+  <text class="sub" x="56" y="174">(ConnectWise Manage)</text>
+  <text class="sub" x="56" y="198">RMM + quotes + CSAT</text>
+  <text class="sub" x="56" y="218">(Asio, CPQ, SmileBack)</text>
+  <text class="sub" x="56" y="242">Docs / knowledge base</text>
+  <text class="sub" x="56" y="262">(IT Gluestyle)</text>
+  <text class="sub" x="56" y="286">Microsoft 365</text>
+
+  <!-- Cosmos -->
+  <rect class="card" x="340" y="130" width="200" height="140" rx="8"/>
+  <text class="label" x="356" y="158">Cosmos DB</text>
+  <text class="sub" x="356" y="184">Tickets · techs · devices</text>
+  <text class="sub" x="356" y="204">Invoices · projects · CSAT</text>
+  <text class="sub" x="356" y="224">LLM-ready ops documents</text>
+  <text class="sub" x="356" y="248">+ MCP data tools</text>
+
+  <!-- MCP -->
+  <rect class="card" x="340" y="310" width="200" height="120" rx="8"/>
+  <text class="label" x="356" y="338">MCP tool servers</text>
+  <text class="sub" x="356" y="364">Auth · RBAC · tool schemas</text>
+  <text class="sub" x="356" y="384">Azure Containers</text>
+  <text class="sub" x="356" y="404">auto-scale</text>
+
+  <!-- Dashboard -->
+  <rect class="card" x="640" y="100" width="420" height="240" rx="8"/>
+  <text class="label" x="656" y="128">Ops analytics dashboard</text>
+  <text class="sub" x="656" y="154">Azure Containers + Redis snapshots</text>
+  <text class="sub" x="656" y="182">" Time-bounded ticket / open-work views</text>
+  <text class="sub" x="656" y="204">" Technician load · account health · MTTR</text>
+  <text class="sub" x="656" y="226">" Sankey + bar charts (volume paths)</text>
+  <text class="sub" x="656" y="248">" Azure AI Foundry note analysis</text>
+  <text class="sub" x="656" y="270">  (why tickets stay unresolved)</text>
+  <text class="sub" x="656" y="300">Weekly / monthly ops reports</text>
+
+  <!-- Dispatcher -->
+  <rect class="card" x="640" y="370" width="420" height="120" rx="8"/>
+  <text class="label" x="656" y="398">Ticket auto-dispatcher</text>
+  <text class="sub" x="656" y="424">Azure Functions ’ PSA REST API</text>
+  <text class="sub" x="656" y="444">Round-robin + weighted load · 100k+ tickets</text>
+  <text class="sub" x="656" y="464">Public mock: ticket-dispatcher-demo</text>
+
+  <!-- arrows -->
+  <path class="arrow" d="M260 180 H340"/>
+  <path class="arrow" d="M260 220 H340"/>
+  <path class="arrow" d="M540 200 H640"/>
+  <path class="arrow" d="M440 270 V310"/>
+  <path class="arrow" d="M540 370 H640 400"/>
+
+  <rect class="chip" x="40" y="540" width="1020" height="50" rx="8"/>
+  <text class="sub" x="56" y="570">Public proof: github.com/Jaswanthnani02/ticket-dispatcher-demo · github.com/Jaswanthnani02/mcp-rbac-demo · live dashboard UI remains private; see redacted mock on this site</text>
+</svg>
