@@ -897,6 +897,59 @@ a:hover { color: var(--accent); }
     box-shadow: var(--shadow-md);
 }
 
+.conference-block {
+    margin: 8px 0 4px;
+}
+
+.conference-label {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xxs);
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px !important;
+}
+
+.conference-intro {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    margin-bottom: 18px !important;
+    max-width: 42rem;
+}
+
+.conference-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.conference-shot {
+    margin: 0;
+}
+
+.conference-shot img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: var(--bg-elevated);
+}
+
+.conference-shot:first-child img {
+    object-position: center 20%;
+}
+
+.conference-shot figcaption {
+    margin-top: 8px;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xxs);
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
 .exp-header h3 {
     font-size: var(--fs-xxl);
     color: var(--slate-lighter);
@@ -1488,6 +1541,15 @@ body.modal-open { overflow: hidden; }
 
     .education-school-row {
         justify-content: center;
+    }
+
+    .conference-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .conference-shot img {
+        aspect-ratio: 16 / 10;
     }
 
     .skills-grid { grid-template-columns: 1fr; }
