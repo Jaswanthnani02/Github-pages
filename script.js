@@ -517,6 +517,58 @@ function initProjectModal() {
     });
 }
 
+function initLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
+    const image = document.getElementById('lightboxImage');
+    const caption = document.getElementById('lightboxCaption');
+    const stage = lightbox.querySelector('.lightbox-stage');
+
+    function openLightbox(src, text, alt) {
+        image.classList.remove('is-zoomed');
+        image.src = src;
+        image.alt = alt || text || '';
+        caption.textContent = text || '';
+        if (stage) stage.scrollTop = 0;
+        lightbox.hidden = false;
+        document.body.classList.add('modal-open');
+    }
+
+    function closeLightbox() {
+        lightbox.hidden = true;
+        image.classList.remove('is-zoomed');
+        image.removeAttribute('src');
+        document.body.classList.remove('modal-open');
+    }
+
+    document.querySelectorAll('[data-lightbox]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const src = btn.getAttribute('data-lightbox');
+            const text = btn.getAttribute('data-caption') || '';
+            const img = btn.querySelector('img');
+            openLightbox(src, text, img ? img.alt : text);
+        });
+    });
+
+    image.addEventListener('click', e => {
+        e.stopPropagation();
+        image.classList.toggle('is-zoomed');
+        if (stage) {
+            stage.scrollTop = 0;
+            stage.scrollLeft = 0;
+        }
+    });
+
+    lightbox.querySelectorAll('[data-close-lightbox]').forEach(el => {
+        el.addEventListener('click', closeLightbox);
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
+    });
+}
+
 // ============================================
 // 6. CURSOR GLOW (desktop only)
 // ============================================
@@ -538,5 +590,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initScrollProgress();
     initProjectModal();
+    initLightbox();
     initCursorGlow();
 });

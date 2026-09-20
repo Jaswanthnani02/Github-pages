@@ -142,15 +142,21 @@
                 <p class="conference-intro">Google Cloud and Pax8 Beyond with BetterWorld Technology.</p>
                 <div class="conference-grid">
                     <figure class="conference-shot">
-                        <img src="conference-google-cloud.jpg" alt="Jaswanth Gaddam at Google Cloud AI Live + Labs, Agentic Work" width="800" height="1000" loading="lazy">
+                        <button type="button" class="conference-zoom" data-lightbox="conference-google-cloud.jpg" data-caption="Google Cloud · AI Live + Labs · Agentic Work" aria-label="View Google Cloud conference photo larger">
+                            <img src="conference-google-cloud.jpg" alt="Jaswanth Gaddam at Google Cloud AI Live + Labs, Agentic Work" width="800" height="1000" loading="lazy">
+                        </button>
                         <figcaption>Google Cloud · AI Live + Labs · Agentic Work</figcaption>
                     </figure>
                     <figure class="conference-shot">
-                        <img src="conference-pax8-2026.jpg" alt="BetterWorld Technology team on stage at Pax8 Beyond 2026" width="1200" height="800" loading="lazy">
+                        <button type="button" class="conference-zoom" data-lightbox="conference-pax8-2026.jpg" data-caption="Pax8 Beyond 2026 · BetterWorld Technology" aria-label="View Pax8 Beyond 2026 photo larger">
+                            <img src="conference-pax8-2026.jpg" alt="BetterWorld Technology team on stage at Pax8 Beyond 2026" width="1200" height="800" loading="lazy">
+                        </button>
                         <figcaption>Pax8 Beyond 2026 · BetterWorld Technology</figcaption>
                     </figure>
                     <figure class="conference-shot">
-                        <img src="conference-pax8-mainstage.jpg" alt="Jaswanth Gaddam with colleagues at Pax8 Beyond mainstage" width="1200" height="900" loading="lazy">
+                        <button type="button" class="conference-zoom" data-lightbox="conference-pax8-mainstage.jpg" data-caption="Pax8 Beyond · Mainstage" aria-label="View Pax8 Beyond mainstage photo larger">
+                            <img src="conference-pax8-mainstage.jpg" alt="Jaswanth Gaddam with colleagues at Pax8 Beyond mainstage" width="1200" height="900" loading="lazy">
+                        </button>
                         <figcaption>Pax8 Beyond · Mainstage</figcaption>
                     </figure>
                 </div>
@@ -347,6 +353,19 @@
             <h3 class="project-modal-title" id="projectModalTitle"></h3>
             <div class="project-modal-body" id="projectModalBody"></div>
             <ul class="project-modal-tech" id="projectModalTech"></ul>
+        </div>
+    </div>
+
+    <!-- Image lightbox -->
+    <div class="lightbox" id="lightbox" hidden>
+        <div class="lightbox-backdrop" data-close-lightbox></div>
+        <div class="lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption">
+            <button type="button" class="lightbox-close" data-close-lightbox aria-label="Close">&times;</button>
+            <div class="lightbox-stage">
+                <img id="lightboxImage" alt="" class="lightbox-image">
+            </div>
+            <p class="lightbox-caption" id="lightboxCaption"></p>
+            <p class="lightbox-hint">Click photo to zoom · Esc to close</p>
         </div>
     </div>
 
