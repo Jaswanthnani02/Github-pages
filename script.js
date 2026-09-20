@@ -375,7 +375,7 @@ const PROJECT_DETAILS = {
             </ul>
             <h4>Outcome</h4>
             <p>Weekly flash reports, monthly ops reports, and per-client health scores from the same stack.</p>
-            <p><a href="ops-dashboard-preview.svg" target="_blank" rel="noopener noreferrer">Redacted UI mock →</a></p>
+            <p><a href="ops-dashboard-preview.png" target="_blank" rel="noopener noreferrer">Redacted UI mock →</a></p>
         `,
         tech: ['Cosmos DB', 'Azure Containers', 'Azure Redis', 'Azure AI Foundry', 'Microsoft 365']
     },
