@@ -929,17 +929,11 @@ a:hover { color: var(--accent); }
 
 .conference-shot img {
     width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: center 25%;
+    height: auto;
     display: block;
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     background: var(--bg-elevated);
-}
-
-.conference-shot:first-child img {
-    object-position: center 20%;
 }
 
 .conference-shot figcaption {
@@ -1546,10 +1540,6 @@ body.modal-open { overflow: hidden; }
     .conference-grid {
         grid-template-columns: 1fr;
         gap: 20px;
-    }
-
-    .conference-shot img {
-        aspect-ratio: 16 / 10;
     }
 
     .skills-grid { grid-template-columns: 1fr; }
